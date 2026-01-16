@@ -56,13 +56,13 @@ export const RSVP = () => {
 
   if (submitted) {
     return (
-      <section className="bg-light-dark my-0 pb-0 pt-3" id="comment">
+      <section className="bg-light-dark py-4" id="comment">
         <div className="container">
-          <div className="border rounded-5 shadow p-3 mb-2">
+          <div className="bg-theme-auto rounded-5 shadow p-4">
             <h2 className="font-esthetic text-center mt-2 mb-4" style={{ fontSize: '2.25rem' }}>
               Спасибо!
             </h2>
-            <p className="text-center" style={{ fontSize: '0.95rem' }}>
+            <p className="text-center mb-0" style={{ fontSize: '0.95rem' }}>
               Ваш ответ был успешно отправлен. Мы очень рады, что вы будете с нами!
             </p>
           </div>
@@ -72,9 +72,9 @@ export const RSVP = () => {
   }
 
   return (
-    <section className="bg-light-dark my-0 pb-0 pt-3" id="comment">
+    <section className="bg-light-dark py-4" id="comment">
       <div className="container">
-        <div className="border rounded-5 shadow p-3 mb-2">
+        <div className="bg-theme-auto rounded-5 shadow p-4">
           <h2 className="font-esthetic text-center mt-2 mb-4" style={{ fontSize: '2.25rem' }}>
             Пожелания
           </h2>

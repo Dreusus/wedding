@@ -26,7 +26,7 @@ export const LoveAnimation = ({ position, delay = 500 }: LoveAnimationProps) => 
   };
 
   return (
-    <div className="position-absolute" style={positionStyles[position]}>
+    <div className="position-absolute" style={{ ...positionStyles[position], zIndex: 10 }}>
       <svg
         ref={svgRef}
         xmlns="http://www.w3.org/2000/svg"

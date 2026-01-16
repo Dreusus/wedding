@@ -26,7 +26,7 @@ export const Gallery = () => {
   };
 
   return (
-    <section className="bg-white-black pb-5 pt-3" id="gallery">
+    <section className="bg-white-black py-4" id="gallery">
       <div className="container">
         <div className="border rounded-5 shadow p-3">
           <h2 className="font-esthetic text-center py-2 m-0" style={{ fontSize: '2.25rem' }}>

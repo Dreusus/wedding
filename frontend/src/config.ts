@@ -53,6 +53,51 @@ export const weddingConfig = {
       phone: '+7 (999) 999-99-99',
     },
   },
+  organizer: {
+    name: 'Анна',
+    role: 'Координатор',
+    phone: '+7 (999) 123-45-67',
+    telegram: 'anna_wedding',
+    // photo: '/assets/images/organizer.webp',
+  },
+  program: [
+    {
+      time: '14:00',
+      title: 'Сбор гостей',
+      description: 'Welcome-зона, приветственный фуршет',
+      icon: 'fa-champagne-glasses',
+    },
+    {
+      time: '15:00',
+      title: 'Церемония',
+      description: 'Торжественная выездная регистрация',
+      icon: 'fa-rings-wedding',
+    },
+    {
+      time: '16:00',
+      title: 'Банкет',
+      description: 'Праздничный ужин и поздравления',
+      icon: 'fa-utensils',
+    },
+    {
+      time: '20:00',
+      title: 'Торт',
+      description: 'Вынос свадебного торта',
+      icon: 'fa-cake-candles',
+    },
+    {
+      time: '22:00',
+      title: 'Вечеринка',
+      description: 'Танцы и веселье',
+      icon: 'fa-music',
+    },
+    {
+      time: '00:00',
+      title: 'Финал',
+      description: 'Завершение праздника',
+      icon: 'fa-heart',
+    },
+  ],
   audio: '/assets/music/pure-love-304010.mp3',
   images: {
     background: '/assets/images/bg.webp',
