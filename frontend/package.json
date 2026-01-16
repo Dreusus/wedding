@@ -1,23 +1,37 @@
 {
-    "devDependencies": {
-        "@eslint/js": "^9.37.0",
-        "eslint": "^9.37.0",
-        "fs-extra": "^11.3.2",
-        "globals": "^16.4.0",
-        "htmlhint": "^1.7.1",
-        "madge": "^8.0.0",
-        "stylelint": "^16.25.0",
-        "stylelint-config-recommended": "^17.0.0"
-    },
-    "scripts": {
-        "lint:js": "eslint js",
-        "lint:css": "stylelint css",
-        "lint:html": "htmlhint **/*.html",
-        "dev": "npx esbuild js/*.js --bundle --outdir=dist --servedir=. --serve=8080",
-        "build": "npx esbuild js/*.js --bundle --minify --outdir=dist",
-        "build:public": "npm run build && node -e \"const fs = require('fs-extra'); fs.ensureDir('public').then(() => Promise.all(['assets', 'css', 'dist', 'index.html', 'dashboard.html'].map((f) => fs.copy(f, 'public/' + f)))).then(() => console.log('✅ Successfully!'));\""
-    },
-    "dependencies": {
-        "esbuild": "^0.25.10"
-    }
+  "name": "frontend-new",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
+    "canvas-confetti": "^1.9.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/aos": "^3.0.7",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "sass": "^1.97.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
+  }
 }

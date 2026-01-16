@@ -16,7 +16,13 @@
       "WebFetch(domain:bowwe.com)",
       "WebFetch(domain:www.sitebuilderreport.com)",
       "WebFetch(domain:yourweddingcountdown.com)",
-      "WebFetch(domain:motionstamp.com)"
+      "WebFetch(domain:motionstamp.com)",
+      "Bash(timeout 5 npm run dev:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd //c \"taskkill /IM node.exe /F\")"
     ]
   }
 }
