@@ -24,7 +24,9 @@
       "Bash(taskkill:*)",
       "Bash(cmd //c \"taskkill /IM node.exe /F\")",
       "Bash(grep:*)",
-      "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && grep -o \"\"bg-[a-z-]*\"\" {} | head -1')"
+      "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && grep -o \"\"bg-[a-z-]*\"\" {} | head -1')",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)"
     ]
   }
 }

@@ -19,10 +19,10 @@ export const LoveAnimation = ({ position, delay = 500 }: LoveAnimationProps) => 
   }, [delay]);
 
   const positionStyles: Record<string, React.CSSProperties> = {
-    'top-right': { top: '0%', right: '5%' },
-    'bottom-left': { top: '90%', left: '5%' },
-    'top-left': { top: '0%', left: '5%' },
-    'bottom-right': { top: '90%', right: '5%' },
+    'top-right': { top: '5%', right: '5%' },
+    'bottom-left': { bottom: '15%', left: '5%' },
+    'top-left': { top: '5%', left: '5%' },
+    'bottom-right': { bottom: '15%', right: '5%' },
   };
 
   return (

@@ -56,7 +56,7 @@ export const RSVP = () => {
 
   if (submitted) {
     return (
-      <section className="bg-light-dark py-4" id="comment">
+      <section className="bg-light-dark py-4 position-relative" id="comment" style={{ zIndex: 0 }}>
         <div className="container">
           <div className="bg-theme-auto rounded-5 shadow p-4">
             <h2 className="font-esthetic text-center mt-2 mb-4" style={{ fontSize: '2.25rem' }}>
@@ -72,7 +72,7 @@ export const RSVP = () => {
   }
 
   return (
-    <section className="bg-light-dark py-4" id="comment">
+    <section className="bg-light-dark py-4 position-relative" id="comment" style={{ zIndex: 0 }}>
       <div className="container">
         <div className="bg-theme-auto rounded-5 shadow p-4">
           <h2 className="font-esthetic text-center mt-2 mb-4" style={{ fontSize: '2.25rem' }}>
