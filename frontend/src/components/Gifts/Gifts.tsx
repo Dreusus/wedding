@@ -24,7 +24,6 @@ export const Gifts = () => {
           Если вы хотите сделать нам подарок, можете воспользоваться следующими способами:
         </p>
 
-        {/* Bank Transfer */}
         <div
           className="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start"
           data-aos="fade-up"

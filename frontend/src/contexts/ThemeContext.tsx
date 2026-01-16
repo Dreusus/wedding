@@ -42,7 +42,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('wedding-theme', newTheme);
-    setIsAutoMode(false);
   };
 
   return (

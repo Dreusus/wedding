@@ -1,4 +1,3 @@
-// Wedding configuration
 export const weddingConfig = {
   groom: {
     name: 'Андрей',

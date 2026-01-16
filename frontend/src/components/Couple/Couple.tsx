@@ -13,7 +13,6 @@ export const Couple = () => {
       </p>
 
       <div className="overflow-x-hidden pb-4">
-        {/* Groom */}
         <div className="position-relative">
           <LoveAnimation position="top-right" delay={500} />
 
