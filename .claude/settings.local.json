@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-react-app . --template typescript)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:this-is-love.ru)",
+      "WebSearch",
+      "WebFetch(domain:codepen.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:lottiefiles.com)",
+      "WebFetch(domain:iconscout.com)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:themeforest.net)",
+      "WebFetch(domain:bowwe.com)",
+      "WebFetch(domain:www.sitebuilderreport.com)",
+      "WebFetch(domain:yourweddingcountdown.com)",
+      "WebFetch(domain:motionstamp.com)"
+    ]
+  }
+}
