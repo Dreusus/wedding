@@ -1,14 +1,11 @@
 import { weddingConfig } from '../../config';
-import { LoveAnimation } from '../common/LoveAnimation';
 import './Program.scss';
 
 export const Program = () => {
   const timeline = weddingConfig.program;
 
   return (
-    <section className="bg-light-dark py-4 position-relative overflow-hidden" id="program" style={{ zIndex: 1 }}>
-      <LoveAnimation position="top-right" delay={500} />
-      <LoveAnimation position="bottom-left" delay={2000} />
+    <section className="bg-light-dark py-4" id="program">
 
       <div className="container">
         <h2 className="font-esthetic text-center mb-4" style={{ fontSize: '2.25rem' }}>
