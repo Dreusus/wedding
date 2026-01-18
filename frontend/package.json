@@ -14,6 +14,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^5.3.8",
     "canvas-confetti": "^1.9.4",
+    "gsap": "^3.14.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -21,6 +22,7 @@
     "@eslint/js": "^9.39.1",
     "@types/aos": "^3.0.7",
     "@types/canvas-confetti": "^1.9.0",
+    "@types/gsap": "^1.20.2",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",

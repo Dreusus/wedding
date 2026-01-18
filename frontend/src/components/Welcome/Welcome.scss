@@ -1,174 +1,595 @@
-// Welcome component styles - Tilda design
+// Wedding colors
 $color-primary: #4b0b22;
 $color-secondary: #f6ece3;
+$color-white: #ffffff;
 
-.welcome-tilda {
+// Envelope colors (3 burgundy tones - NO BLACK)
+$color-env: $color-primary;                      // Main burgundy (sides)
+$color-env2: darken($color-primary, 5%);         // Slightly darker (bottom)
+$color-flap: lighten($color-primary, 5%);        // Lighter burgundy (flap + background)
+$color-heart: #c41e3a;
+
+// Envelope dimensions
+$env-width: 280px;
+$env-height: 180px;
+$env-border-radius: 10px;
+$heart-width: 25px;
+
+// Main page
+.welcome-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: $color-secondary;
-  position: relative;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
   overflow: hidden;
 }
 
-.welcome-decoration {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-
-  &.top-right {
-    top: 0;
-    right: -30px;
-    width: 120px;
-    height: auto;
-
-    @media (min-width: 768px) {
-      width: 180px;
-      right: -50px;
-    }
-
-    @media (min-width: 992px) {
-      width: 220px;
-      right: -60px;
-    }
-  }
-
-  &.top-left {
-    top: 50px;
-    left: -30px;
-    width: 100px;
-    height: auto;
-
-    @media (min-width: 768px) {
-      width: 160px;
-      left: -50px;
-    }
-
-    @media (min-width: 992px) {
-      width: 200px;
-      left: -60px;
-    }
-  }
-}
-
-.welcome-content {
-  position: relative;
-  z-index: 1;
-  max-width: 320px;
-  padding: 20px;
-
-  @media (min-width: 768px) {
-    max-width: 400px;
-    padding: 30px;
-  }
-
-  @media (min-width: 992px) {
-    max-width: 500px;
-    padding: 40px;
-  }
-}
-
-.welcome-title {
-  max-width: 180px;
-  height: auto;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    max-width: 220px;
-  }
-
-  @media (min-width: 992px) {
-    max-width: 280px;
-  }
-}
-
-.welcome-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid white;
-  box-shadow: 0 10px 40px rgba($color-primary, 0.2);
-
-  @media (min-width: 768px) {
-    width: 200px;
-    height: 200px;
-  }
-
-  @media (min-width: 992px) {
-    width: 250px;
-    height: 250px;
-    border-width: 6px;
-  }
-}
-
-.welcome-names {
-  max-width: 200px;
-  height: auto;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    max-width: 250px;
-  }
-
-  @media (min-width: 992px) {
-    max-width: 320px;
-  }
-}
-
+// Guest name
 .welcome-guest {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
   color: $color-primary;
+  text-align: center;
+  z-index: 10;
 
   small {
-    font-size: 12px;
-    opacity: 0.7;
-
-    @media (min-width: 768px) {
-      font-size: 14px;
-    }
-
-    @media (min-width: 992px) {
-      font-size: 16px;
-    }
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    opacity: 0.6;
+    display: block;
   }
 
   .guest-name {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 400;
     margin: 5px 0 0;
+    font-family: 'Sacramento', cursive;
+  }
+}
+
+// Hidden class for expanding animation
+.hidden {
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+// White overlay that expands to full screen
+.letter-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: $color-white;
+  z-index: 999999;
+  animation: expandOverlay 0.8s ease forwards;
+}
+
+@keyframes expandOverlay {
+  0% {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 10px;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+// Names
+.welcome-names {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.welcome-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: $color-primary;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+    letter-spacing: 4px;
+  }
+}
+
+.welcome-and {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  color: $color-primary;
+  opacity: 0.6;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+// Date
+.welcome-date {
+  z-index: 2;
+
+  span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: $color-primary;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.7;
 
     @media (min-width: 768px) {
-      font-size: 20px;
-    }
-
-    @media (min-width: 992px) {
-      font-size: 24px;
+      font-size: 16px;
+      letter-spacing: 5px;
     }
   }
 }
 
-.btn-tilda {
-  background-color: $color-primary;
-  color: $color-secondary;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 25px;
-  font-size: 14px;
-  font-weight: 400;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba($color-primary, 0.3);
+// Hint
+.welcome-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
 
-  &:hover {
-    background-color: darken($color-primary, 10%);
-    color: $color-secondary;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($color-primary, 0.4);
+  span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: $color-primary;
+    opacity: 0.5;
+    letter-spacing: 1px;
+  }
+}
+
+// ==========================================
+// ENVELOPE STYLES
+// ==========================================
+
+.envelope-wrapper {
+  height: $env-height + 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: $env-width;
+  height: $env-height;
+  border-radius: $env-border-radius;
+  background-color: $color-flap;
+  box-shadow: 0 4px 20px rgba($color-primary, 0.3);
+  overflow: hidden;
+
+  @media (min-width: 480px) {
+    width: $env-width * 1.2;
+    height: $env-height * 1.2;
   }
 
   @media (min-width: 768px) {
-    padding: 14px 30px;
-    font-size: 16px;
+    width: $env-width * 1.4;
+    height: $env-height * 1.4;
+  }
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+// Flap (top lid that rotates)
+.flap {
+  border-left: calc($env-width / 2) solid transparent;
+  border-right: calc($env-width / 2) solid transparent;
+  border-bottom: calc($env-height / 2 - 8px) solid transparent;
+  border-top: calc($env-height / 2 + 8px) solid $color-flap;
+  transform-origin: top;
+  pointer-events: none;
+
+  @media (min-width: 480px) {
+    border-left: calc($env-width * 1.2 / 2) solid transparent;
+    border-right: calc($env-width * 1.2 / 2) solid transparent;
+    border-bottom: calc($env-height * 1.2 / 2 - 10px) solid transparent;
+    border-top: calc($env-height * 1.2 / 2 + 10px) solid $color-flap;
   }
 
-  @media (min-width: 992px) {
-    padding: 16px 35px;
-    font-size: 18px;
+  @media (min-width: 768px) {
+    border-left: calc($env-width * 1.4 / 2) solid transparent;
+    border-right: calc($env-width * 1.4 / 2) solid transparent;
+    border-bottom: calc($env-height * 1.4 / 2 - 12px) solid transparent;
+    border-top: calc($env-height * 1.4 / 2 + 12px) solid $color-flap;
   }
+}
+
+// Pocket (main body) - sides main color, bottom slightly darker
+.pocket {
+  border-left: calc($env-width / 2) solid $color-env;
+  border-right: calc($env-width / 2) solid $color-env;
+  border-bottom: calc($env-height / 2) solid $color-env2;
+  border-top: calc($env-height / 2) solid transparent;
+  border-bottom-left-radius: $env-border-radius;
+  border-bottom-right-radius: $env-border-radius;
+
+  @media (min-width: 480px) {
+    border-left: calc($env-width * 1.2 / 2) solid $color-env;
+    border-right: calc($env-width * 1.2 / 2) solid $color-env;
+    border-bottom: calc($env-height * 1.2 / 2) solid $color-env2;
+    border-top: calc($env-height * 1.2 / 2) solid transparent;
+  }
+
+  @media (min-width: 768px) {
+    border-left: calc($env-width * 1.4 / 2) solid $color-env;
+    border-right: calc($env-width * 1.4 / 2) solid $color-env;
+    border-bottom: calc($env-height * 1.4 / 2) solid $color-env2;
+    border-top: calc($env-height * 1.4 / 2) solid transparent;
+  }
+}
+
+// Letter inside envelope
+.letter {
+  position: relative;
+  background-color: $color-white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+  border-radius: $env-border-radius;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+  cursor: default;
+  transition: transform 0.4s ease, z-index 0.6s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 25%,
+      rgba(215, 227, 239, 0.7) 55%,
+      rgba(215, 227, 239, 1) 100%
+    );
+    border-radius: $env-border-radius;
+    pointer-events: none;
+  }
+}
+
+// Lines on the letter (like text lines) - light burgundy
+.words {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 14%;
+  background-color: rgba($color-primary, 0.12);
+  border-radius: 2px;
+}
+
+.words.line1 {
+  top: 15%;
+  width: 20%;
+  height: 7%;
+}
+
+.words.line2 {
+  top: 30%;
+}
+
+.words.line3 {
+  top: 50%;
+}
+
+.words.line4 {
+  top: 70%;
+}
+
+// ==========================================
+// ENVELOPE STATES (open/close)
+// ==========================================
+
+// Closed state
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px);
+  transition: transform 0.4s ease, z-index 1s;
+  z-index: 1;
+}
+
+.close .hearts .heart {
+  opacity: 0;
+  animation: none;
+}
+
+// Open state
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-60px);
+  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+  z-index: 2;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (min-width: 480px) {
+    transform: translateY(-72px);
+  }
+
+  @media (min-width: 768px) {
+    transform: translateY(-84px);
+  }
+}
+
+// Letter expanding animation
+.letter.expanding {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  z-index: 99999 !important;
+  transform: none !important;
+  animation: expandLetter 0.8s ease forwards !important;
+
+  // Hide lines when expanding
+  .words {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &::after {
+    opacity: 0;
+  }
+}
+
+@keyframes expandLetter {
+  0% {
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    border-radius: $env-border-radius;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(0, 0);
+    border-radius: 0;
+  }
+}
+
+// ==========================================
+// HEARTS ANIMATION
+// ==========================================
+
+.hearts {
+  position: absolute;
+  top: calc($env-height / 2);
+  left: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  @media (min-width: 480px) {
+    top: calc($env-height * 1.2 / 2);
+  }
+
+  @media (min-width: 768px) {
+    top: calc($env-height * 1.4 / 2);
+  }
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    left: $heart-width;
+    top: 0;
+    width: $heart-width;
+    height: $heart-width * 1.6;
+    background: $color-heart;
+    border-radius: $heart-width $heart-width 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+
+  &::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+}
+
+// Heart animations (only when envelope is open)
+.open .heart {
+  opacity: 1;
+}
+
+.open .a1 {
+  left: 20%;
+  transform: scale(0.6);
+  animation:
+    slideUp 4s linear 1 forwards,
+    sideSway 2s ease-in-out 4 alternate;
+  animation-delay: 0.7s;
+}
+
+.open .a2 {
+  left: 55%;
+  transform: scale(1);
+  animation:
+    slideUp 5s linear 1 forwards,
+    sideSway 4s ease-in-out 2 alternate;
+  animation-delay: 0.7s;
+}
+
+.open .a3 {
+  left: 10%;
+  transform: scale(0.8);
+  animation:
+    slideUp 7s linear 1 forwards,
+    sideSway 2s ease-in-out 6 alternate;
+  animation-delay: 0.7s;
+}
+
+@keyframes slideUp {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -500px;
+    opacity: 0;
+  }
+}
+
+@keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
+// ==========================================
+// RIBBON (Sticker)
+// ==========================================
+
+.ribbon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 30px;
+  background-color: rgba($color-secondary, 0.95);
+  border: 2px solid darken($color-secondary, 10%);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: inherit; // Keep scissors cursor
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (min-width: 480px) {
+    height: 36px;
+  }
+
+  @media (min-width: 768px) {
+    height: 40px;
+  }
+}
+
+.ribbon-heart {
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234b0b22'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// Cut ribbon animation
+.ribbon.cut {
+  animation: ribbonCut 0.4s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes ribbonCut {
+  0% {
+    transform: translate(-50%, -50%) scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scaleX(1.1);
+  }
+  100% {
+    transform: translate(-50%, 100%) scaleX(0);
+    opacity: 0;
+  }
+}
+
+// ==========================================
+// SCISSORS CURSOR
+// ==========================================
+
+// Open scissors - original images
+.scissors {
+  cursor: url("https://i.postimg.cc/GtLCdKxR/sisors.png") 32 32, pointer;
+
+  // Closed scissors - on click
+  &:active {
+    cursor: url("https://i.postimg.cc/GtXQ7WPZ/pngwing-com.png") 32 32, pointer;
+  }
+}
+
+.cursor {
+  cursor: pointer;
 }

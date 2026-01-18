@@ -39,6 +39,11 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
+
+  &.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
 }
 
 .main-content {

@@ -12,8 +12,8 @@ export const weddingConfig = {
     image: '',
   },
   wedding: {
-    date: '2026-07-19T17:00:00',
-    dateFormatted: '19 июля 2026',
+    date: '2025-08-31T17:00:00',
+    dateFormatted: '31 августа 2026',
     dayOfWeek: 'Воскресенье',
     ceremony: {
       time: '18:00',

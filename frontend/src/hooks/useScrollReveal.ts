@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, RefObject } from 'react';
+import { useEffect, useState, useRef, type RefObject } from 'react';
 
 interface UseScrollRevealOptions {
   threshold?: number;
@@ -7,7 +7,7 @@ interface UseScrollRevealOptions {
 
 export const useScrollReveal = <T extends HTMLElement>(
   options: UseScrollRevealOptions = {}
-): [RefObject<T>, boolean] => {
+): [RefObject<T | null>, boolean] => {
   const { threshold = 0.2, rootMargin = '0px' } = options;
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<T>(null);

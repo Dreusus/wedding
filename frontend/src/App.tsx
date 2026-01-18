@@ -11,29 +11,27 @@ import {RSVP} from './components/RSVP/RSVP';
 import {Footer} from './components/Footer/Footer';
 
 function App() {
-    const {isInvitationOpened} = useApp();
+    const {isWelcomeVisible} = useApp();
 
     return (
         <>
             <Welcome/>
-            {isInvitationOpened && (
-                <div className="app-container">
-                    <main className="main-content">
-                            <Home/>
-                            <Venue/>
-                            <FabricDivider />
-                            <Program/>
-                            <FabricDivider />
-                            <DressCode/>
-                            <FabricDivider />
-                            <Gifts/>
-                            <FabricDivider />
-                            <RSVP/>
-                            <FabricDivider />
-                            <Footer/>
-                    </main>
-                </div>
-            )}
+            <div className={`app-container ${isWelcomeVisible ? 'no-scroll' : ''}`}>
+                <main className="main-content">
+                        <Home/>
+                        <Venue/>
+                        <FabricDivider />
+                        <Program/>
+                        <FabricDivider />
+                        <DressCode/>
+                        <FabricDivider />
+                        <Gifts/>
+                        <FabricDivider />
+                        <RSVP/>
+                        <FabricDivider />
+                        <Footer/>
+                </main>
+            </div>
         </>
     );
 }
