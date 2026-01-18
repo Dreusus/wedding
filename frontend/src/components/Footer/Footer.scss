@@ -4,8 +4,7 @@ $color-secondary: #f6ece3;
 .footer-section {
   position: relative;
   overflow: visible;
-  padding: 100px 20px;
-  padding-bottom: 0;
+  padding: 0;
 
   @media (min-width: 768px) {
     padding: 150px 40px;
@@ -38,21 +37,38 @@ $color-secondary: #f6ece3;
   justify-content: center;
   position: relative;
   z-index: 1;
+
+  @media (min-width: 769px) {
+    margin-top: -90px;
+  }
 }
 
 .footer-roses {
-  max-width: 200px;
-  width: 100%;
+  width: 150px;
   height: auto;
-  opacity: 0;
-  transform: translateY(-50px);
+  opacity: 1;
+  transform: translateY(-100%);
+  padding-top: 35px;
 
-  @media (min-width: 768px) {
-    max-width: 300px;
+  @media (min-width: 769px) {
+    padding-top: 0;
+    width: 350px;
   }
 
   @media (min-width: 992px) {
-    max-width: 400px;
+    width: 450px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 550px;
+  }
+
+  @media (min-width: 1500px) {
+    width: 650px;
+  }
+
+  @media (min-width: 1800px) {
+    width: 750px;
   }
 
   &.animate-slide-down {
@@ -62,12 +78,10 @@ $color-secondary: #f6ece3;
 
 @keyframes slideDown {
   0% {
-    transform: translateY(-50px);
-    opacity: 0;
+    transform: translateY(-100%);
   }
   100% {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
@@ -141,7 +155,7 @@ $color-secondary: #f6ece3;
   width: 100%;
   height: auto;
   transform: rotate(-15deg);
-  padding-bottom: 25px;
+  padding-bottom: 0;
   margin-left: 150px;
   margin-top: -55px;
   opacity: 0;
