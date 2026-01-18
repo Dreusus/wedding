@@ -3,7 +3,7 @@ $color-secondary: #f6ece3;
 
 .gifts-section {
   background-color: $color-primary;
-  padding: 120px 20px;
+  padding: 100px 20px;
   position: relative;
   overflow: visible;
 
@@ -146,22 +146,14 @@ $color-secondary: #f6ece3;
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 15px;
   pointer-events: none;
-
-  @media (min-width: 768px) {
-    padding: 0 25px;
-  }
-
-  @media (min-width: 992px) {
-    padding: 0 40px;
-  }
 }
 
 .animated-vase {
-  max-width: 120px;
+  max-width: 110px;
   height: auto;
-  animation: slideUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(100%);
 
   @media (min-width: 768px) {
     max-width: 170px;
@@ -173,11 +165,17 @@ $color-secondary: #f6ece3;
 }
 
 .vase-left {
-  // как есть
+  &.animate {
+    animation: slideUp 1s ease-out forwards;
+  }
 }
 
 .vase-right {
-  transform: scaleX(-1);
+  transform: scaleX(-1) translateY(100%);
+
+  &.animate {
+    animation: slideUpRight 1s ease-out forwards;
+  }
 }
 
 @keyframes slideUp {
@@ -189,10 +187,6 @@ $color-secondary: #f6ece3;
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-.vase-right {
-  animation: slideUpRight 1s ease-out forwards;
 }
 
 @keyframes slideUpRight {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { weddingConfig } from '../../config';
 import './RSVP.scss';
 
@@ -16,6 +16,22 @@ export const RSVP = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsVisible(true);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -65,10 +81,10 @@ export const RSVP = () => {
   }
 
   return (
-    <section className="rsvp-section section-secondary" id="comment">
+    <section ref={sectionRef} className="rsvp-section section-secondary" id="comment">
       <div className="container">
         {/* RSVP Title SVG */}
-        <div className="text-center mb-4">
+        <div className={`text-center mb-4 reveal ${isVisible ? 'visible' : ''}`}>
           <img
             src={weddingConfig.images.svg.rsvp}
             alt="Анкета"
@@ -76,12 +92,12 @@ export const RSVP = () => {
           />
         </div>
 
-        <p className="text-center mb-2" style={{ fontSize: '0.9rem' }}>
+        <p className={`text-center mb-2 reveal reveal-delay-1 ${isVisible ? 'visible' : ''}`} style={{ fontSize: '0.9rem' }}>
           просьба заполнить анкету до {weddingConfig.rsvp.deadline}
         </p>
 
         {/* RSVP Form */}
-        <div className="rsvp-form-container">
+        <div className={`rsvp-form-container reveal reveal-delay-2 ${isVisible ? 'visible' : ''}`}>
           {/* Name Field */}
           <div className="form-group mb-4">
             <label className="form-label-tilda">

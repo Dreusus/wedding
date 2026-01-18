@@ -3,16 +3,17 @@ $color-secondary: #f6ece3;
 
 .venue-section {
   background-color: $color-secondary;
-  padding: 120px 20px;
+  padding: 100px 20px;
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  z-index: 1;
 
   @media (min-width: 768px) {
     padding: 150px 40px;
   }
 
   @media (min-width: 992px) {
-    padding: 180px 60px;
+    padding: 220px 60px;
   }
 }
 
@@ -23,79 +24,89 @@ $color-secondary: #f6ece3;
   height: auto;
   z-index: 1;
   pointer-events: none;
+  display: none;
 
   @media (min-width: 768px) {
-    width: 150px;
+    display: block;
+    width: 200px;
   }
 
   @media (min-width: 992px) {
-    width: 200px;
+    width: 280px;
   }
 }
 
 .venue-flower-right {
-  right: -150px;
+  right: -20px;
   top: 50%;
-  transform: translateY(-50%);
-  animation: slideFromRight 1s ease-out forwards;
+  transform: translateX(100%) translateY(-50%);
+  opacity: 0;
+
+  @media (min-width: 768px) {
+    right: -30px;
+  }
+
+  @media (min-width: 992px) {
+    right: -40px;
+  }
+
+  &.animate {
+    animation: slideFromRight 1s ease-out forwards;
+  }
 }
 
 .venue-flower-left {
-  left: -150px;
+  left: -20px;
   top: 50%;
-  transform: translateY(-50%) scaleX(-1);
-  animation: slideFromLeft 1s ease-out forwards;
+  transform: translateX(-100%) translateY(-50%) scaleX(-1);
+  opacity: 0;
+
+  @media (min-width: 768px) {
+    left: -30px;
+  }
+
+  @media (min-width: 992px) {
+    left: -40px;
+  }
+
+  &.animate {
+    animation: slideFromLeft 1s ease-out forwards;
+  }
 }
 
 @keyframes slideFromRight {
   0% {
-    right: -150px;
+    transform: translateX(100%) translateY(-50%);
     opacity: 0;
   }
   100% {
-    right: -20px;
+    transform: translateX(0) translateY(-50%);
     opacity: 1;
-
-    @media (min-width: 768px) {
-      right: -30px;
-    }
-
-    @media (min-width: 992px) {
-      right: -40px;
-    }
   }
 }
 
 @keyframes slideFromLeft {
   0% {
-    left: -150px;
+    transform: translateX(-100%) translateY(-50%) scaleX(-1);
     opacity: 0;
   }
   100% {
-    left: -20px;
+    transform: translateX(0) translateY(-50%) scaleX(-1);
     opacity: 1;
-
-    @media (min-width: 768px) {
-      left: -30px;
-    }
-
-    @media (min-width: 992px) {
-      left: -40px;
-    }
   }
 }
 
 .location-svg {
-  max-width: 150px;
+  max-width: 250px;
   height: auto;
   margin: 0 auto;
 
   @media (min-width: 768px) {
-    max-width: 200px;
+    max-width: 280px;
   }
 
   @media (min-width: 992px) {
-    max-width: 250px;
+    max-width: 330px;
   }
 }
 
@@ -179,10 +190,10 @@ $color-secondary: #f6ece3;
   }
 }
 
-.btn-tilda-outline {
-  background-color: transparent;
-  color: $color-primary;
-  border: 1px solid $color-primary;
+.venue-section .btn.btn-tilda-outline {
+  background-color: $color-primary !important;
+  color: $color-secondary !important;
+  border: 2px solid $color-primary !important;
   border-radius: 30px;
   padding: 10px 20px;
   font-size: 12px;
@@ -191,8 +202,8 @@ $color-secondary: #f6ece3;
   display: inline-block;
 
   &:hover {
-    background-color: $color-primary;
-    color: $color-secondary;
+    background-color: transparent !important;
+    color: $color-primary !important;
   }
 
   @media (min-width: 768px) {

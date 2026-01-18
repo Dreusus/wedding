@@ -5,7 +5,7 @@ $color-secondary: #f6ece3;
 .rsvp-section {
   position: relative;
   overflow: hidden;
-  padding: 120px 20px;
+  padding: 100px 20px;
 
   @media (min-width: 768px) {
     padding: 150px 40px;
@@ -37,18 +37,21 @@ $color-secondary: #f6ece3;
 }
 
 .rsvp-title-svg {
-  max-width: 180px;
+  min-width: 300px;
+  max-width: 300px;
   height: auto;
   margin: 0 auto;
   margin-top: 20px;
 
   @media (min-width: 768px) {
-    max-width: 250px;
+    min-width: 350px;
+    max-width: 350px;
     margin-top: 30px;
   }
 
   @media (min-width: 992px) {
-    max-width: 320px;
+    min-width: 400px;
+    max-width: 400px;
     margin-top: 40px;
   }
 }

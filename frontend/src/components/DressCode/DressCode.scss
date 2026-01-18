@@ -4,7 +4,7 @@ $color-secondary: #f6ece3;
 .dresscode-section {
   background-color: $color-secondary;
   overflow: hidden;
-  padding: 120px 20px;
+  padding: 100px 20px;
 
   @media (min-width: 768px) {
     padding: 150px 40px;
@@ -81,17 +81,20 @@ $color-secondary: #f6ece3;
 }
 
 .dresscode-girl-image {
-  width: 160px;
+  width: 250px;
+  min-width: 200px;
   height: auto;
   position: relative;
   z-index: 1;
 
   @media (min-width: 768px) {
-    width: 200px;
+    width: 280px;
+    min-width: 250px;
   }
 
   @media (min-width: 992px) {
-    width: 250px;
+    width: 320px;
+    min-width: 280px;
   }
 }
 
@@ -108,23 +111,23 @@ $color-secondary: #f6ece3;
 
 .color-circle {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   @media (min-width: 768px) {
-    width: 50px;
-    height: 50px;
-  }
-
-  @media (min-width: 992px) {
     width: 60px;
     height: 60px;
   }
+
+  @media (min-width: 992px) {
+    width: 70px;
+    height: 70px;
+  }
+
 }
 
 // Left side circles (0, 1, 2) - go left
@@ -134,49 +137,49 @@ $color-secondary: #f6ece3;
 // Circle 0 - left top
 .color-circle.circle-0 {
   .animated & {
-    animation: moveLeftTop 1s ease-out 0.1s forwards;
+    animation: moveLeftTop 1.5s ease-out 2.1s forwards;
   }
 }
 
 // Circle 1 - left middle
 .color-circle.circle-1 {
   .animated & {
-    animation: moveLeftMiddle 1s ease-out 0.25s forwards;
+    animation: moveLeftMiddle 1.5s ease-out 2.25s forwards;
   }
 }
 
 // Circle 2 - left bottom
 .color-circle.circle-2 {
   .animated & {
-    animation: moveLeftBottom 1s ease-out 0.4s forwards;
+    animation: moveLeftBottom 1.5s ease-out 2.4s forwards;
   }
 }
 
 // Circle 3 - right top
 .color-circle.circle-3 {
   .animated & {
-    animation: moveRightTop 1s ease-out 0.55s forwards;
+    animation: moveRightTop 1.5s ease-out 2.55s forwards;
   }
 }
 
 // Circle 4 - right middle
 .color-circle.circle-4 {
   .animated & {
-    animation: moveRightMiddle 1s ease-out 0.7s forwards;
+    animation: moveRightMiddle 1.5s ease-out 2.7s forwards;
   }
 }
 
 // Circle 5 - right bottom
 .color-circle.circle-5 {
   .animated & {
-    animation: moveRightBottom 1s ease-out 0.85s forwards;
+    animation: moveRightBottom 1.5s ease-out 2.85s forwards;
   }
 }
 
 // Mobile animations (default)
 @keyframes moveLeftTop {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% - 100px), calc(-50% - 50px)); }
+  100% { transform: translate(calc(-50% - 100px), calc(-50% - 70px)); }
 }
 
 @keyframes moveLeftMiddle {
@@ -186,12 +189,12 @@ $color-secondary: #f6ece3;
 
 @keyframes moveLeftBottom {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% - 100px), calc(-50% + 50px)); }
+  100% { transform: translate(calc(-50% - 100px), calc(-50% + 70px)); }
 }
 
 @keyframes moveRightTop {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% + 100px), calc(-50% - 50px)); }
+  100% { transform: translate(calc(-50% + 100px), calc(-50% - 70px)); }
 }
 
 @keyframes moveRightMiddle {
@@ -201,39 +204,39 @@ $color-secondary: #f6ece3;
 
 @keyframes moveRightBottom {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% + 100px), calc(-50% + 50px)); }
+  100% { transform: translate(calc(-50% + 100px), calc(-50% + 70px)); }
 }
 
 // Tablet animations
 @media (min-width: 768px) {
   @keyframes moveLeftTop {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 130px), calc(-50% - 60px)); }
+    100% { transform: translate(calc(-50% - 140px), calc(-50% - 90px)); }
   }
 
   @keyframes moveLeftMiddle {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 130px), -50%); }
+    100% { transform: translate(calc(-50% - 140px), -50%); }
   }
 
   @keyframes moveLeftBottom {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 130px), calc(-50% + 60px)); }
+    100% { transform: translate(calc(-50% - 140px), calc(-50% + 90px)); }
   }
 
   @keyframes moveRightTop {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 130px), calc(-50% - 60px)); }
+    100% { transform: translate(calc(-50% + 140px), calc(-50% - 90px)); }
   }
 
   @keyframes moveRightMiddle {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 130px), -50%); }
+    100% { transform: translate(calc(-50% + 140px), -50%); }
   }
 
   @keyframes moveRightBottom {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 130px), calc(-50% + 60px)); }
+    100% { transform: translate(calc(-50% + 140px), calc(-50% + 90px)); }
   }
 }
 
@@ -241,31 +244,31 @@ $color-secondary: #f6ece3;
 @media (min-width: 992px) {
   @keyframes moveLeftTop {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 160px), calc(-50% - 70px)); }
+    100% { transform: translate(calc(-50% - 180px), calc(-50% - 110px)); }
   }
 
   @keyframes moveLeftMiddle {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 160px), -50%); }
+    100% { transform: translate(calc(-50% - 180px), -50%); }
   }
 
   @keyframes moveLeftBottom {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 160px), calc(-50% + 70px)); }
+    100% { transform: translate(calc(-50% - 180px), calc(-50% + 110px)); }
   }
 
   @keyframes moveRightTop {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 160px), calc(-50% - 70px)); }
+    100% { transform: translate(calc(-50% + 180px), calc(-50% - 110px)); }
   }
 
   @keyframes moveRightMiddle {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 160px), -50%); }
+    100% { transform: translate(calc(-50% + 180px), -50%); }
   }
 
   @keyframes moveRightBottom {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 160px), calc(-50% + 70px)); }
+    100% { transform: translate(calc(-50% + 180px), calc(-50% + 110px)); }
   }
 }

@@ -4,7 +4,7 @@ $color-secondary: #f6ece3;
 .footer-section {
   position: relative;
   overflow: visible;
-  padding: 120px 20px;
+  padding: 100px 20px;
   padding-bottom: 0;
 
   @media (min-width: 768px) {
@@ -44,6 +44,8 @@ $color-secondary: #f6ece3;
   max-width: 200px;
   width: 100%;
   height: auto;
+  opacity: 0;
+  transform: translateY(-50px);
 
   @media (min-width: 768px) {
     max-width: 300px;
@@ -52,15 +54,15 @@ $color-secondary: #f6ece3;
   @media (min-width: 992px) {
     max-width: 400px;
   }
+
+  &.animate-slide-down {
+    animation: slideDown 1s ease-out forwards;
+  }
 }
 
-.animate-from-top {
-  animation: slideFromTop 1s ease-out forwards;
-}
-
-@keyframes slideFromTop {
+@keyframes slideDown {
   0% {
-    transform: translateY(-100%);
+    transform: translateY(-50px);
     opacity: 0;
   }
   100% {
@@ -91,6 +93,7 @@ $color-secondary: #f6ece3;
   width: 100%;
   height: auto;
   transform: rotate(-15deg);
+  opacity: 0;
 
   @media (min-width: 768px) {
     max-width: 250px;
@@ -99,11 +102,10 @@ $color-secondary: #f6ece3;
   @media (min-width: 992px) {
     max-width: 320px;
   }
-}
 
-.animate-from-rose {
-  animation: slideFromRose 1s ease-out 0.3s forwards;
-  opacity: 0;
+  &.animate-from-rose {
+    animation: slideFromRose 1s ease-out 0.3s forwards;
+  }
 }
 
 @keyframes slideFromRose {
@@ -142,6 +144,7 @@ $color-secondary: #f6ece3;
   padding-bottom: 25px;
   margin-left: 150px;
   margin-top: -55px;
+  opacity: 0;
 
   @media (min-width: 768px) {
     max-width: 200px;
@@ -156,11 +159,10 @@ $color-secondary: #f6ece3;
     margin-top: -80px;
     padding-bottom: 40px;
   }
-}
 
-.animate-from-bottom {
-  animation: slideFromBottom 1s ease-out 0.6s forwards;
-  opacity: 0;
+  &.animate-from-bottom {
+    animation: slideFromBottom 1s ease-out 0.6s forwards;
+  }
 }
 
 @keyframes slideFromBottom {

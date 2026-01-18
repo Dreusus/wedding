@@ -24,9 +24,9 @@ export const weddingConfig = {
       title: 'Праздничный банкет',
     },
     location: {
-      name: 'Green House',
-      address: 'Московская область, Дмитровский район, деревня Свистуха',
-      mapUrl: 'https://yandex.ru/maps/-/CLGYiG-9',
+      name: 'Vinity',
+      address: 'Ленинградская область, Ломоносовский район, Лопухинское сельское поселение, урочище Новые Медуши,2',
+      mapUrl: 'https://yandex.ru/maps/-/CLhk7I0l',
     },
   },
   dressCode: {
