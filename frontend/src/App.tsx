@@ -3,6 +3,7 @@ import {useApp} from './contexts/AppContext';
 import {Welcome} from './components/Welcome/Welcome';
 import {Home} from './components/Home/Home';
 import {Countdown} from './components/Countdown/Countdown';
+import {DressCode} from './components/DressCode/DressCode';
 import {Program} from './components/Program/Program';
 import {Organizer} from './components/Organizer/Organizer';
 import {RSVP} from './components/RSVP/RSVP';
@@ -23,6 +24,7 @@ function App() {
                         <main>
                             <Home/>
                             <Countdown/>
+                            <DressCode/>
                             <Program/>
                             <Organizer/>
                             <RSVP/>
