@@ -3,16 +3,16 @@ $color-primary: #4b0b22;
 $color-secondary: #f6ece3;
 $color-white: #ffffff;
 
-// Envelope colors (3 burgundy tones - NO BLACK)
-$color-env: $color-primary;                      // Main burgundy (sides)
-$color-env2: darken($color-primary, 5%);         // Slightly darker (bottom)
-$color-flap: lighten($color-primary, 5%);        // Lighter burgundy (flap + background)
+// Envelope colors (3 different burgundy tones like original)
+$color-env: $color-primary;                      // Sides (main burgundy)
+$color-env2: darken($color-primary, 3%);         // Bottom (slightly darker than sides)
+$color-flap: darken($color-primary, 10%);        // Flap + background (darkest)
 $color-heart: #c41e3a;
 
 // Envelope dimensions
 $env-width: 280px;
 $env-height: 180px;
-$env-border-radius: 10px;
+$env-border-radius: 0;
 $heart-width: 25px;
 
 // Main page
@@ -70,29 +70,26 @@ $heart-width: 25px;
 // White overlay that expands to full screen
 .letter-overlay {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: $color-white;
   z-index: 999999;
+  transform-origin: center center;
   animation: expandOverlay 0.8s ease forwards;
 }
 
 @keyframes expandOverlay {
   0% {
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 10px;
+    transform: scale(0);
+    border-radius: 50%;
+    opacity: 1;
   }
   100% {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    transform: scale(1);
     border-radius: 0;
+    opacity: 1;
   }
 }
 
@@ -180,16 +177,17 @@ $heart-width: 25px;
   align-items: center;
   justify-content: center;
   perspective: 1000px;
+  position: relative;
+  z-index: 10;
 }
 
 .envelope {
   position: relative;
   width: $env-width;
   height: $env-height;
-  border-radius: $env-border-radius;
+  border-radius: 0 0 6px 6px;
   background-color: $color-flap;
   box-shadow: 0 4px 20px rgba($color-primary, 0.3);
-  overflow: hidden;
 
   @media (min-width: 480px) {
     width: $env-width * 1.2;
@@ -200,6 +198,11 @@ $heart-width: 25px;
     width: $env-width * 1.4;
     height: $env-height * 1.4;
   }
+}
+
+// When open - letter can go outside
+.envelope.open {
+  overflow: visible;
 }
 
 .front {
@@ -239,8 +242,8 @@ $heart-width: 25px;
   border-right: calc($env-width / 2) solid $color-env;
   border-bottom: calc($env-height / 2) solid $color-env2;
   border-top: calc($env-height / 2) solid transparent;
-  border-bottom-left-radius: $env-border-radius;
-  border-bottom-right-radius: $env-border-radius;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 
   @media (min-width: 480px) {
     border-left: calc($env-width * 1.2 / 2) solid $color-env;
@@ -363,49 +366,6 @@ $heart-width: 25px;
 
   @media (min-width: 768px) {
     transform: translateY(-84px);
-  }
-}
-
-// Letter expanding animation
-.letter.expanding {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
-  z-index: 99999 !important;
-  transform: none !important;
-  animation: expandLetter 0.8s ease forwards !important;
-
-  // Hide lines when expanding
-  .words {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  &::after {
-    opacity: 0;
-  }
-}
-
-@keyframes expandLetter {
-  0% {
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    height: 90%;
-    transform: translate(-50%, -50%);
-    border-radius: $env-border-radius;
-  }
-  100% {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform: translate(0, 0);
-    border-radius: 0;
   }
 }
 
