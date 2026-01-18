@@ -196,7 +196,7 @@ $heart-width: 25px;
   position: relative;
   width: $env-width;
   height: $env-height;
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 12px 12px;
   background-color: $color-flap;
   box-shadow: 0 4px 20px rgba($color-primary, 0.3);
 
@@ -253,8 +253,8 @@ $heart-width: 25px;
   border-right: calc($env-width / 2) solid $color-env;
   border-bottom: calc($env-height / 2) solid $color-env2;
   border-top: calc($env-height / 2) solid transparent;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 
   @media (min-width: 480px) {
     border-left: calc($env-width * 1.2 / 2) solid $color-env;
@@ -475,7 +475,7 @@ $heart-width: 25px;
 }
 
 // ==========================================
-// RIBBON (Sticker)
+// RIBBON (Sticker) with animated hearts
 // ==========================================
 
 .ribbon {
@@ -488,39 +488,43 @@ $heart-width: 25px;
   background-color: rgba($color-secondary, 0.95);
   border: 2px solid darken($color-secondary, 10%);
   z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: inherit; // Keep scissors cursor
-  transition: all 0.3s ease;
+  cursor: inherit !important; // Keep scissors cursor always
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  // Hearts pattern moving left to right (with spacing)
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 45 24' fill='%234b0b22'%3E%3Cpath d='M22.5 21.35l-1.45-1.32C15.9 15.36 12.5 12.28 12.5 8.5 12.5 5.42 14.92 3 18 3c1.74 0 3.41.81 4.5 2.09C23.59 3.81 25.26 3 27 3 30.08 3 32.5 5.42 32.5 8.5c0 3.78-3.4 6.86-8.55 11.54L22.5 21.35z'/%3E%3C/svg%3E");
+  background-size: 40px 18px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  animation: moveHearts 2s linear infinite;
 
   &:hover {
+    cursor: inherit !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
 
   @media (min-width: 480px) {
     height: 36px;
+    background-size: 45px 20px;
   }
 
   @media (min-width: 768px) {
     height: 40px;
+    background-size: 50px 22px;
   }
 }
 
-.ribbon-heart {
-  width: 20px;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234b0b22'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
+@keyframes moveHearts {
+  0% {
+    background-position: 0 center;
+  }
+  100% {
+    background-position: 50px center;
   }
 }
+
+// No separate heart needed anymore
 
 // Cut ribbon animation
 .ribbon.cut {

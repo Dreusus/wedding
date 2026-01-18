@@ -91,13 +91,11 @@ export const Welcome = () => {
             <div className="heart a3"></div>
           </div>
 
-          {/* Ribbon/Sticker */}
+          {/* Ribbon/Sticker with animated hearts */}
           <div
             className={`ribbon ${isStickerCut ? 'cut' : ''}`}
             onClick={handleStickerCut}
-          >
-            <div className="ribbon-heart"></div>
-          </div>
+          ></div>
         </div>
       </div>
 
@@ -109,7 +107,6 @@ export const Welcome = () => {
       {/* Hint */}
       {!isStickerCut && (
         <div className="welcome-hint">
-          <span>Нажмите на ленту, чтобы открыть</span>
         </div>
       )}
     </div>
