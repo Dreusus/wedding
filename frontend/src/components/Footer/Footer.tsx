@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import './Footer.scss';
 
-export const  Footer = () => {
+export const   Footer = () => {
   const [isAnimated, setIsAnimated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
