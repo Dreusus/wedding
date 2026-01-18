@@ -17,23 +17,21 @@ function App() {
         <>
             <Welcome/>
             {isInvitationOpened && (
-                <div className="d-flex justify-content-center m-0 p-0" id="root">
-                    <div className="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 m-0 p-0">
-                        <main>
+                <div className="app-container">
+                    <main className="main-content">
                             <Home/>
                             <Venue/>
-                            <FabricDivider/>
+                            <FabricDivider />
                             <Program/>
-                            <FabricDivider/>
+                            <FabricDivider />
                             <DressCode/>
-                            <FabricDivider/>
+                            <FabricDivider />
                             <Gifts/>
-                            <FabricDivider/>
+                            <FabricDivider />
                             <RSVP/>
-                            <FabricDivider/>
+                            <FabricDivider />
                             <Footer/>
-                        </main>
-                    </div>
+                    </main>
                 </div>
             )}
         </>

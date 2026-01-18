@@ -4,30 +4,57 @@ $color-secondary: #f6ece3;
 .dresscode-section {
   background-color: $color-secondary;
   overflow: hidden;
+  padding: 120px 20px;
+
+  @media (min-width: 768px) {
+    padding: 150px 40px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 180px 60px;
+  }
 }
 
 .dresscode-title-container {
   padding-top: 20px;
+
+  @media (min-width: 768px) {
+    padding-top: 30px;
+  }
+
+  @media (min-width: 992px) {
+    padding-top: 40px;
+  }
 }
 
 .dresscode-title-svg {
-  max-width: 400px;
+  max-width: 280px;
   height: auto;
 
-  @media (max-width: 576px) {
-    max-width: 280px;
+  @media (min-width: 768px) {
+    max-width: 400px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 500px;
   }
 }
 
 .dresscode-description {
   color: $color-primary;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
-  max-width: 500px;
+  max-width: 300px;
   margin: 0 auto;
 
-  @media (max-width: 576px) {
-    font-size: 14px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    max-width: 450px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 18px;
+    max-width: 550px;
   }
 }
 
@@ -36,6 +63,14 @@ $color-secondary: #f6ece3;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+
+  @media (min-width: 768px) {
+    margin-top: 40px;
+  }
+
+  @media (min-width: 992px) {
+    margin-top: 50px;
+  }
 }
 
 .dresscode-girl-wrapper {
@@ -46,13 +81,17 @@ $color-secondary: #f6ece3;
 }
 
 .dresscode-girl-image {
-  width: 200px;
+  width: 160px;
   height: auto;
   position: relative;
   z-index: 1;
 
-  @media (max-width: 576px) {
-    width: 160px;
+  @media (min-width: 768px) {
+    width: 200px;
+  }
+
+  @media (min-width: 992px) {
+    width: 250px;
   }
 }
 
@@ -69,17 +108,22 @@ $color-secondary: #f6ece3;
 
 .color-circle {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-  @media (max-width: 576px) {
-    width: 40px;
-    height: 40px;
+  @media (min-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
+
+  @media (min-width: 992px) {
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -129,66 +173,99 @@ $color-secondary: #f6ece3;
   }
 }
 
-// Desktop animations
+// Mobile animations (default)
 @keyframes moveLeftTop {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% - 130px), calc(-50% - 60px)); }
+  100% { transform: translate(calc(-50% - 100px), calc(-50% - 50px)); }
 }
 
 @keyframes moveLeftMiddle {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% - 130px), -50%); }
+  100% { transform: translate(calc(-50% - 100px), -50%); }
 }
 
 @keyframes moveLeftBottom {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% - 130px), calc(-50% + 60px)); }
+  100% { transform: translate(calc(-50% - 100px), calc(-50% + 50px)); }
 }
 
 @keyframes moveRightTop {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% + 130px), calc(-50% - 60px)); }
+  100% { transform: translate(calc(-50% + 100px), calc(-50% - 50px)); }
 }
 
 @keyframes moveRightMiddle {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% + 130px), -50%); }
+  100% { transform: translate(calc(-50% + 100px), -50%); }
 }
 
 @keyframes moveRightBottom {
   0% { transform: translate(-50%, -50%); }
-  100% { transform: translate(calc(-50% + 130px), calc(-50% + 60px)); }
+  100% { transform: translate(calc(-50% + 100px), calc(-50% + 50px)); }
 }
 
-// Mobile animations - smaller distances
-@media (max-width: 576px) {
+// Tablet animations
+@media (min-width: 768px) {
   @keyframes moveLeftTop {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 100px), calc(-50% - 50px)); }
+    100% { transform: translate(calc(-50% - 130px), calc(-50% - 60px)); }
   }
 
   @keyframes moveLeftMiddle {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 100px), -50%); }
+    100% { transform: translate(calc(-50% - 130px), -50%); }
   }
 
   @keyframes moveLeftBottom {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% - 100px), calc(-50% + 50px)); }
+    100% { transform: translate(calc(-50% - 130px), calc(-50% + 60px)); }
   }
 
   @keyframes moveRightTop {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 100px), calc(-50% - 50px)); }
+    100% { transform: translate(calc(-50% + 130px), calc(-50% - 60px)); }
   }
 
   @keyframes moveRightMiddle {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 100px), -50%); }
+    100% { transform: translate(calc(-50% + 130px), -50%); }
   }
 
   @keyframes moveRightBottom {
     0% { transform: translate(-50%, -50%); }
-    100% { transform: translate(calc(-50% + 100px), calc(-50% + 50px)); }
+    100% { transform: translate(calc(-50% + 130px), calc(-50% + 60px)); }
+  }
+}
+
+// Desktop animations - larger distances
+@media (min-width: 992px) {
+  @keyframes moveLeftTop {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% - 160px), calc(-50% - 70px)); }
+  }
+
+  @keyframes moveLeftMiddle {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% - 160px), -50%); }
+  }
+
+  @keyframes moveLeftBottom {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% - 160px), calc(-50% + 70px)); }
+  }
+
+  @keyframes moveRightTop {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% + 160px), calc(-50% - 70px)); }
+  }
+
+  @keyframes moveRightMiddle {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% + 160px), -50%); }
+  }
+
+  @keyframes moveRightBottom {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% + 160px), calc(-50% + 70px)); }
   }
 }

@@ -2,14 +2,29 @@ $color-primary: #4b0b22;
 
 .program-section {
   background-color: $color-primary;
-  padding-top: 65px;
-  margin-top: -60px;
-  padding-bottom: 50px;
-  margin-bottom: -50px;
+  padding: 120px 20px;
+
+  @media (min-width: 768px) {
+    padding: 150px 40px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 180px 60px;
+  }
 }
 
 .program-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    max-width: 600px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 750px;
+  }
 }

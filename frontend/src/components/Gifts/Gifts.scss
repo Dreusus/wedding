@@ -3,13 +3,17 @@ $color-secondary: #f6ece3;
 
 .gifts-section {
   background-color: $color-primary;
-  padding: 40px 20px;
-  padding-top: 0;
-  margin-top: -60px;
-  padding-bottom: 50px;
-  margin-bottom: -50px;
+  padding: 120px 20px;
   position: relative;
   overflow: visible;
+
+  @media (min-width: 768px) {
+    padding: 150px 40px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 180px 60px;
+  }
 }
 
 .gifts-images {
@@ -21,26 +25,41 @@ $color-secondary: #f6ece3;
 
 .gifts-title {
   position: absolute;
-  right: 20px;
+  right: 10px;
   top: 17%;
   transform: translateY(-50%);
-  max-width: 250px;
+  max-width: 120px;
   height: auto;
   filter: grayscale(100%) brightness(0.5);
   opacity: 0.7;
 
-  @media (max-width: 576px) {
-    max-width: 120px;
-    right: 10px;
+  @media (min-width: 768px) {
+    max-width: 200px;
+    right: 20px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 280px;
+    right: 30px;
   }
 }
 
 .gifts-envelope {
-  max-width: 700px;
+  max-width: 400px;
   width: 100%;
   height: auto;
   transform: rotate(-13deg);
-  padding-top: 100px;
+  padding-top: 80px;
+
+  @media (min-width: 768px) {
+    max-width: 550px;
+    padding-top: 100px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 700px;
+    padding-top: 120px;
+  }
 }
 
 .organizer-info {
@@ -50,25 +69,47 @@ $color-secondary: #f6ece3;
   color: $color-secondary;
   position: relative;
   z-index: 12;
+
+  @media (min-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 992px) {
+    margin-top: 50px;
+    margin-bottom: 70px;
+  }
 }
 
 .organizer-description {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
-  max-width: 400px;
+  max-width: 300px;
   margin: 0 auto 20px;
 
-  @media (max-width: 576px) {
-    font-size: 14px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    max-width: 400px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 18px;
+    max-width: 500px;
   }
 }
 
 .organizer-name {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 15px;
 
-  @media (max-width: 576px) {
-    font-size: 20px;
+  @media (min-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 28px;
+    margin-bottom: 25px;
   }
 }
 
@@ -77,8 +118,8 @@ $color-secondary: #f6ece3;
   color: $color-secondary;
   border: 1px solid $color-secondary;
   border-radius: 30px;
-  padding: 12px 25px;
-  font-size: 14px;
+  padding: 10px 20px;
+  font-size: 12px;
   transition: all 0.3s ease;
 
   &:hover {
@@ -86,29 +127,49 @@ $color-secondary: #f6ece3;
     color: $color-primary;
   }
 
-  @media (max-width: 576px) {
-    padding: 10px 20px;
-    font-size: 12px;
+  @media (min-width: 768px) {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 14px 30px;
+    font-size: 16px;
   }
 }
 
 // Вазы с анимацией
 .vases-container {
   position: absolute;
-  bottom: -40px;
+  bottom: 0;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
-  padding-bottom: 20px;
+  padding: 0 15px;
   pointer-events: none;
+
+  @media (min-width: 768px) {
+    padding: 0 25px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 0 40px;
+  }
 }
 
 .animated-vase {
-  max-width: 170px;
+  max-width: 120px;
   height: auto;
   animation: slideUp 1s ease-out forwards;
+
+  @media (min-width: 768px) {
+    max-width: 170px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 220px;
+  }
 }
 
 .vase-left {

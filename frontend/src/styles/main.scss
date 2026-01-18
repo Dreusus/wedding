@@ -33,6 +33,19 @@ body {
   color: $color-text !important;
 }
 
+// App container - responsive layout
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 100%;
+}
+
 i {
   width: auto !important;
 }

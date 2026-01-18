@@ -5,6 +5,7 @@ $color-secondary: #f6ece3;
 .home-section {
   background-color: $color-secondary;
   min-height: 100vh;
+  position: relative;
 }
 
 // Decorative flowers
@@ -20,6 +21,16 @@ $color-secondary: #f6ece3;
   width: 180px;
   height: auto;
 
+  @media (min-width: 768px) {
+    width: 220px;
+    right: -30px;
+  }
+
+  @media (min-width: 992px) {
+    width: 280px;
+    right: -40px;
+  }
+
   @media (max-width: 576px) {
     width: 120px;
     right: -10px;
@@ -31,6 +42,16 @@ $color-secondary: #f6ece3;
   left: -20px;
   width: 180px;
   height: auto;
+
+  @media (min-width: 768px) {
+    width: 220px;
+    left: -30px;
+  }
+
+  @media (min-width: 992px) {
+    width: 280px;
+    left: -40px;
+  }
 
   @media (max-width: 576px) {
     width: 120px;
@@ -44,6 +65,18 @@ $color-secondary: #f6ece3;
   width: 150px;
   height: auto;
 
+  @media (min-width: 768px) {
+    width: 180px;
+    top: 200px;
+    right: -40px;
+  }
+
+  @media (min-width: 992px) {
+    width: 220px;
+    top: 250px;
+    right: -50px;
+  }
+
   @media (max-width: 576px) {
     width: 100px;
     top: 100px;
@@ -54,13 +87,35 @@ $color-secondary: #f6ece3;
 // Main content
 .home-content {
   z-index: 1;
+  padding: 20px;
+  padding-bottom: 120px;
+
+  @media (min-width: 768px) {
+    padding: 40px;
+    padding-bottom: 150px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 60px;
+    padding-bottom: 180px;
+  }
 }
 
 .title-container {
   .title-svg {
     max-width: 450px;
+    width: 100%;
     height: auto;
     margin: 0 auto;
+    display: block;
+
+    @media (min-width: 768px) {
+      max-width: 500px;
+    }
+
+    @media (min-width: 992px) {
+      max-width: 600px;
+    }
 
     @media (max-width: 576px) {
       max-width: 280px;
@@ -71,8 +126,18 @@ $color-secondary: #f6ece3;
 .names-container {
   .names-svg {
     max-width: 300px;
+    width: 100%;
     height: auto;
     margin: 0 auto;
+    display: block;
+
+    @media (min-width: 768px) {
+      max-width: 400px;
+    }
+
+    @media (min-width: 992px) {
+      max-width: 500px;
+    }
 
     @media (max-width: 576px) {
       max-width: 220px;
@@ -80,30 +145,21 @@ $color-secondary: #f6ece3;
   }
 }
 
-.couple-photo-container {
-  position: relative;
-  margin: 20px auto;
-
-  .couple-photo {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid white;
-    box-shadow: 0 10px 40px rgba($color-primary, 0.2);
-
-    @media (max-width: 576px) {
-      width: 200px;
-      height: 200px;
-    }
-  }
-}
-
 .date-container {
   .date-svg {
     max-width: 200px;
+    width: 100%;
     height: auto;
     margin: 0 auto;
+    display: block;
+
+    @media (min-width: 768px) {
+      max-width: 280px;
+    }
+
+    @media (min-width: 992px) {
+      max-width: 350px;
+    }
 
     @media (max-width: 576px) {
       max-width: 150px;
@@ -114,71 +170,63 @@ $color-secondary: #f6ece3;
 // Burgundy section
 .burgundy-section {
   background-color: $color-primary;
-  margin-top: -60px;
-  margin-bottom: -50px;
-  padding-bottom: 50px;
-  position: relative;
-}
-
-.couple-images-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 15px;
-  margin-top: 0;
-  margin-bottom: 40px;
-  padding-top: 100px;
+  padding-top: 120px;
+  padding-bottom: 120px;
   position: relative;
 
-  .couple-image-wrapper {
-    &.left, &.right {
-      .couple-small-image {
-        width: 100px;
-        height: 130px;
-        object-fit: cover;
-        border-radius: 60px 60px 60px 60px;
-        border: 3px solid white;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  @media (min-width: 768px) {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
 
-        @media (max-width: 576px) {
-          width: 70px;
-          height: 90px;
-        }
-      }
-    }
-
-    &.center {
-      .couple-center-image {
-        width: 150px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 80px 80px 80px 80px;
-        border: 4px solid white;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-
-        @media (max-width: 576px) {
-          width: 110px;
-          height: 150px;
-        }
-      }
-    }
+  @media (min-width: 992px) {
+    padding-top: 180px;
+    padding-bottom: 180px;
   }
 }
 
 .invitation-text-container {
   text-align: center;
   color: $color-secondary;
-  padding: 50px;
+  padding: 50px 20px;
+
+  @media (min-width: 768px) {
+    padding: 70px 40px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 100px 60px;
+  }
 }
 
 .invite-svg-container {
   margin-bottom: 20px;
   padding-top: 50px;
 
+  @media (min-width: 768px) {
+    margin-bottom: 30px;
+    padding-top: 60px;
+  }
+
+  @media (min-width: 992px) {
+    margin-bottom: 40px;
+    padding-top: 80px;
+  }
+
   .invite-svg {
     max-width: 300px;
+    width: 100%;
     height: auto;
     margin: 0 auto;
+    display: block;
+
+    @media (min-width: 768px) {
+      max-width: 400px;
+    }
+
+    @media (min-width: 992px) {
+      max-width: 500px;
+    }
 
     @media (max-width: 576px) {
       max-width: 200px;
@@ -190,12 +238,25 @@ $color-secondary: #f6ece3;
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 15px;
-  max-width: 300px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
 
+  @media (min-width: 768px) {
+    font-size: 18px;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 20px;
+    max-width: 600px;
+    margin-bottom: 25px;
+  }
+
   @media (max-width: 576px) {
     font-size: 14px;
+    max-width: 300px;
   }
 }
 
@@ -204,6 +265,18 @@ $color-secondary: #f6ece3;
   opacity: 0.8;
   margin-top: 30px;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
 
   @media (max-width: 576px) {
     font-size: 12px;
@@ -215,11 +288,19 @@ $color-secondary: #f6ece3;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 10px;
+  gap: 15px;
   margin: 0 auto;
 
+  @media (min-width: 768px) {
+    gap: 25px;
+  }
+
+  @media (min-width: 992px) {
+    gap: 40px;
+  }
+
   @media (max-width: 576px) {
-    gap: 5px;
+    gap: 8px;
   }
 }
 
@@ -227,18 +308,34 @@ $color-secondary: #f6ece3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 50px;
+  min-width: 60px;
+
+  @media (min-width: 768px) {
+    min-width: 80px;
+  }
+
+  @media (min-width: 992px) {
+    min-width: 100px;
+  }
 
   @media (max-width: 576px) {
-    min-width: 40px;
+    min-width: 45px;
   }
 }
 
 .countdown-value {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 600;
   color: $color-secondary;
   line-height: 1;
+
+  @media (min-width: 768px) {
+    font-size: 48px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 64px;
+  }
 
   @media (max-width: 576px) {
     font-size: 24px;
@@ -248,19 +345,38 @@ $color-secondary: #f6ece3;
 .countdown-label {
   font-size: 12px;
   color: rgba($color-secondary, 0.7);
-  margin-top: 5px;
+  margin-top: 8px;
   text-transform: lowercase;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 16px;
+    margin-top: 12px;
+  }
 
   @media (max-width: 576px) {
     font-size: 10px;
+    margin-top: 5px;
   }
 }
 
 .countdown-separator {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 300;
   color: rgba($color-secondary, 0.5);
   line-height: 1;
+
+  @media (min-width: 768px) {
+    font-size: 44px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 56px;
+  }
 
   @media (max-width: 576px) {
     font-size: 20px;
@@ -282,7 +398,7 @@ $color-secondary: #f6ece3;
 }
 
 // Button overrides for this section
-.btn-tilda-outline {
+.burgundy-section .btn-tilda-outline {
   background-color: transparent;
   color: $color-secondary;
   border: 1px solid $color-secondary;
