@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import './Footer.scss';
 
-export const Footer = () => {
+export const  Footer = () => {
   const [isAnimated, setIsAnimated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -35,17 +35,13 @@ export const Footer = () => {
         />
       </div>
 
-      {/* 1.svg выезжает из розы */}
-      <div className="footer-svg1-container">
+      {/* SVG контейнер */}
+      <div className="footer-svgs-container">
         <img
           src="/images/footer-1.svg"
           alt=""
           className={`footer-svg1 ${isAnimated ? 'animate-from-rose' : ''}`}
         />
-      </div>
-
-      {/* 2.svg выезжает снизу */}
-      <div className="footer-svg2-container">
         <img
           src="/images/footer-2.svg"
           alt=""

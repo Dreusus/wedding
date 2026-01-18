@@ -85,13 +85,14 @@ $color-secondary: #f6ece3;
   }
 }
 
-// 1.svg
-.footer-svg1-container {
+// SVG контейнер
+.footer-svgs-container {
   display: flex;
-  justify-content: center;
-  margin-top: 15px;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: 1;
+  margin-top: 15px;
 
   @media (min-width: 768px) {
     margin-top: 20px;
@@ -103,22 +104,72 @@ $color-secondary: #f6ece3;
 }
 
 .footer-svg1 {
-  max-width: 180px;
-  width: 100%;
+  width: 250px;
   height: auto;
   transform: rotate(-15deg);
   opacity: 0;
 
   @media (min-width: 768px) {
-    max-width: 250px;
+    width: 350px;
   }
 
   @media (min-width: 992px) {
-    max-width: 320px;
+    width: 450px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 550px;
+  }
+
+  @media (min-width: 1500px) {
+    width: 650px;
+  }
+
+  @media (min-width: 1800px) {
+    width: 750px;
   }
 
   &.animate-from-rose {
     animation: slideFromRose 1s ease-out 0.3s forwards;
+  }
+}
+
+.footer-svg2 {
+  width: 220px;
+  height: auto;
+  transform: rotate(-15deg);
+  opacity: 0;
+  align-self: flex-end;
+  margin-top: -30px;
+  margin-right: 10%;
+
+  @media (min-width: 768px) {
+    width: 300px;
+    margin-top: -50px;
+  }
+
+  @media (min-width: 992px) {
+    width: 400px;
+    margin-top: -70px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 500px;
+    margin-top: -90px;
+  }
+
+  @media (min-width: 1500px) {
+    width: 600px;
+    margin-top: -110px;
+  }
+
+  @media (min-width: 1800px) {
+    width: 700px;
+    margin-top: -130px;
+  }
+
+  &.animate-from-bottom {
+    animation: slideFromBottom 1s ease-out 0.6s forwards;
   }
 }
 
@@ -130,52 +181,6 @@ $color-secondary: #f6ece3;
   100% {
     transform: translateY(0) rotate(-15deg);
     opacity: 1;
-  }
-}
-
-// 2.svg
-.footer-svg2-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  position: relative;
-  z-index: 1;
-
-  @media (min-width: 768px) {
-    margin-top: 20px;
-  }
-
-  @media (min-width: 992px) {
-    margin-top: 25px;
-  }
-}
-
-.footer-svg2 {
-  max-width: 150px;
-  width: 100%;
-  height: auto;
-  transform: rotate(-15deg);
-  padding-bottom: 0;
-  margin-left: 150px;
-  margin-top: -55px;
-  opacity: 0;
-
-  @media (min-width: 768px) {
-    max-width: 200px;
-    margin-left: 250px;
-    margin-top: -65px;
-    padding-bottom: 30px;
-  }
-
-  @media (min-width: 992px) {
-    max-width: 260px;
-    margin-left: 350px;
-    margin-top: -80px;
-    padding-bottom: 40px;
-  }
-
-  &.animate-from-bottom {
-    animation: slideFromBottom 1s ease-out 0.6s forwards;
   }
 }
 
