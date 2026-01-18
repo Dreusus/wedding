@@ -1,30 +1,19 @@
-import { createContext, useContext, useState, useRef, useCallback, type ReactNode, type Dispatch, type SetStateAction } from 'react';
+import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 import confetti from 'canvas-confetti';
 
 interface AppContextType {
-  isLoading: boolean;
-  setIsLoading: (loading: boolean) => void;
-  loadingProgress: number;
-  setLoadingProgress: Dispatch<SetStateAction<number>>;
   isWelcomeVisible: boolean;
   setIsWelcomeVisible: (visible: boolean) => void;
   isInvitationOpened: boolean;
   openInvitation: () => void;
-  isAudioPlaying: boolean;
-  toggleAudio: () => void;
-  audioRef: React.RefObject<HTMLAudioElement | null>;
   guestName: string | null;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [isWelcomeVisible, setIsWelcomeVisible] = useState(false);
+  const [isWelcomeVisible, setIsWelcomeVisible] = useState(true);
   const [isInvitationOpened, setIsInvitationOpened] = useState(false);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Extract guest name from URL
   const getGuestName = () => {
@@ -84,46 +73,15 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     };
 
     setTimeout(frame, 1500);
-
-    // Start playing audio
-    if (audioRef.current) {
-      audioRef.current.play().then(() => {
-        setIsAudioPlaying(true);
-      }).catch(() => {
-        // Audio play failed (user interaction required)
-      });
-    }
   }, []);
-
-  const toggleAudio = useCallback(() => {
-    if (audioRef.current) {
-      if (isAudioPlaying) {
-        audioRef.current.pause();
-        setIsAudioPlaying(false);
-      } else {
-        audioRef.current.play().then(() => {
-          setIsAudioPlaying(true);
-        }).catch(() => {
-          // Audio play failed
-        });
-      }
-    }
-  }, [isAudioPlaying]);
 
   return (
     <AppContext.Provider
       value={{
-        isLoading,
-        setIsLoading,
-        loadingProgress,
-        setLoadingProgress,
         isWelcomeVisible,
         setIsWelcomeVisible,
         isInvitationOpened,
         openInvitation,
-        isAudioPlaying,
-        toggleAudio,
-        audioRef,
         guestName,
       }}
     >

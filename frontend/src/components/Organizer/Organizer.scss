@@ -1,1 +1,176 @@
-// Organizer component styles
+// Organizer component styles - Tilda design
+$color-primary: #4b0b22;
+$color-secondary: #f6ece3;
+
+.organizer-section {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-secondary;
+}
+
+.organizer-decoration {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+
+  &.top {
+    top: -50px;
+  }
+
+  &.bottom {
+    bottom: -50px;
+    transform: rotate(180deg);
+  }
+}
+
+.organizer-layout {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  padding: 20px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.organizer-side-image {
+  flex: 0 0 auto;
+
+  .side-photo {
+    width: 150px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 80px;
+    box-shadow: 0 10px 30px rgba($color-primary, 0.2);
+
+    @media (max-width: 768px) {
+      width: 120px;
+      height: 160px;
+      border-radius: 60px;
+    }
+  }
+
+  &.left {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &.right {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.organizer-center {
+  flex: 0 1 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    max-width: 320px;
+  }
+}
+
+.organizer-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba($color-primary, 0.1);
+  padding: 25px;
+  text-align: center;
+
+  .card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gift-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 20px rgba($color-primary, 0.15);
+
+    @media (max-width: 576px) {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .gift-text {
+    font-size: 14px;
+    color: $color-primary;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 250px;
+
+    @media (max-width: 576px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.organizer-info {
+  text-align: center;
+  padding: 20px;
+}
+
+.organizer-description {
+  font-size: 14px;
+  color: $color-primary;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  max-width: 300px;
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
+}
+
+.organizer-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-primary;
+  margin-bottom: 15px;
+
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
+}
+
+.btn-tilda-outline {
+  background-color: transparent;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-secondary;
+  }
+
+  @media (max-width: 576px) {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}

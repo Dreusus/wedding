@@ -3,23 +3,52 @@ import './Footer.scss';
 
 export const Footer = () => {
   return (
-    <section className="bg-white-black py-2 no-gap-bottom">
-      <div className="container text-center">
-        <p className="pb-2 pt-4" style={{ fontSize: '0.95rem' }}>
-          Благодарим вас за внимание и тёплые пожелания. Ваше присутствие — лучший подарок для нас!
-        </p>
+    <section className="footer-section" id="footer">
+      {/* Background image with overlay */}
+      <div
+        className="footer-background"
+        style={{
+          backgroundImage: `url(${weddingConfig.images.footer.background})`,
+        }}
+      >
+        <div className="footer-overlay"></div>
+      </div>
 
-        <h2 className="font-esthetic" style={{ fontSize: '2rem' }}>
-          С любовью, {weddingConfig.groom.name} и {weddingConfig.bride.name}
-        </h2>
+      {/* Content */}
+      <div className="footer-content">
+        {/* Couple photo */}
+        <div className="footer-couple-container">
+          <img
+            src={weddingConfig.images.footer.couple}
+            alt={`${weddingConfig.groom.name} и ${weddingConfig.bride.name}`}
+            className="footer-couple-image"
+          />
+        </div>
 
-        <hr className="my-3" />
+        {/* We're waiting text - using SVG */}
+        <div className="footer-text-container">
+          <img
+            src={weddingConfig.images.svg.footer}
+            alt="Ждём вас!"
+            className="footer-text-svg"
+          />
+        </div>
 
-        <div className="row align-items-center justify-content-between flex-column pb-3">
-          <div className="col-auto">
-            <small>
-              Сделано с<i className="fa-solid fa-heart mx-1"></i>любовью
-            </small>
+        {/* Couple photos side by side */}
+        <div className="footer-photos-row">
+          <div className="footer-photo-wrapper left">
+            <img
+              src={weddingConfig.groom.image}
+              alt={weddingConfig.groom.name}
+              className="footer-side-photo"
+            />
+          </div>
+          <div className="footer-photo-wrapper right">
+            <img
+              src={weddingConfig.bride.image}
+              alt={weddingConfig.bride.name}
+              className="footer-side-photo"
+            />
           </div>
         </div>
       </div>

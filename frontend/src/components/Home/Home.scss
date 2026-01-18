@@ -1,1 +1,240 @@
-// Home component styles
+// Home component styles - Tilda design
+$color-primary: #4b0b22;
+$color-secondary: #f6ece3;
+
+.home-section {
+  background-color: $color-secondary;
+  min-height: 100vh;
+}
+
+// Floating flower decorations
+.flowers-top-right {
+  top: 0;
+  right: -50px;
+  width: 200px;
+  height: auto;
+  z-index: 2;
+
+  @media (max-width: 576px) {
+    width: 120px;
+    right: -30px;
+  }
+}
+
+.flowers-top-left {
+  top: 50px;
+  left: -50px;
+  width: 180px;
+  height: auto;
+  z-index: 2;
+
+  @media (max-width: 576px) {
+    width: 100px;
+    left: -30px;
+  }
+}
+
+// Main content
+.home-content {
+  padding-top: 40px;
+  z-index: 1;
+}
+
+.title-container {
+  .title-svg {
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: 576px) {
+      max-width: 180px;
+    }
+  }
+}
+
+.names-container {
+  .names-svg {
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: 576px) {
+      max-width: 220px;
+    }
+  }
+}
+
+.couple-photo-container {
+  position: relative;
+  margin: 20px auto;
+
+  .couple-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 10px 40px rgba($color-primary, 0.2);
+
+    @media (max-width: 576px) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+.date-container {
+  .date-svg {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: 576px) {
+      max-width: 150px;
+    }
+  }
+}
+
+// Burgundy section
+.burgundy-section {
+  background-color: $color-primary;
+  padding: 60px 20px 40px;
+  margin-top: 40px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, $color-primary);
+    pointer-events: none;
+  }
+}
+
+.couple-images-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 40px;
+  position: relative;
+
+  .couple-image-wrapper {
+    &.left, &.right {
+      .couple-small-image {
+        width: 100px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 60px 60px 60px 60px;
+        border: 3px solid white;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+        @media (max-width: 576px) {
+          width: 70px;
+          height: 90px;
+        }
+      }
+    }
+
+    &.center {
+      .couple-center-image {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 80px 80px 80px 80px;
+        border: 4px solid white;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+        @media (max-width: 576px) {
+          width: 110px;
+          height: 150px;
+        }
+      }
+    }
+  }
+}
+
+.invitation-text-container {
+  text-align: center;
+  color: $color-secondary;
+  padding: 20px;
+}
+
+.invite-svg-container {
+  margin-bottom: 20px;
+
+  .invite-svg {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: 576px) {
+      max-width: 150px;
+    }
+  }
+}
+
+.invitation-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.invitation-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
+}
+
+.countdown-preview {
+  .countdown-svg {
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: 576px) {
+      max-width: 220px;
+    }
+  }
+}
+
+// Scroll indicator
+.scroll-indicator {
+  text-align: center;
+  color: $color-secondary;
+
+  .mouse-animation {
+    border-color: $color-secondary !important;
+  }
+
+  .scroll-animation {
+    background-color: $color-secondary !important;
+  }
+}
+
+// Button overrides for this section
+.btn-tilda-outline {
+  background-color: transparent;
+  color: $color-secondary;
+  border: 1px solid $color-secondary;
+
+  &:hover {
+    background-color: $color-secondary;
+    color: $color-primary;
+  }
+}

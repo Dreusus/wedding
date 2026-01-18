@@ -1,38 +1,31 @@
 import { useState } from 'react';
+import { weddingConfig } from '../../config';
 import './RSVP.scss';
 
 interface RSVPForm {
   name: string;
   presence: string;
-  comment: string;
+  partnerName: string;
 }
 
 export const RSVP = () => {
   const [form, setForm] = useState<RSVPForm>({
     name: '',
-    presence: '0',
-    comment: '',
+    presence: '',
+    partnerName: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const { id, value } = e.target;
-    const fieldMap: Record<string, keyof RSVPForm> = {
-      'form-name': 'name',
-      'form-presence': 'presence',
-      'form-comment': 'comment',
-    };
-    const field = fieldMap[id];
-    if (field) {
-      setForm((prev) => ({ ...prev, [field]: value }));
-    }
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async () => {
-    if (!form.name || form.presence === '0') {
+    if (!form.name || !form.presence) {
       return;
     }
 
@@ -56,14 +49,14 @@ export const RSVP = () => {
 
   if (submitted) {
     return (
-      <section className="bg-light-dark py-4 position-relative" id="comment" style={{ zIndex: 0 }}>
+      <section className="rsvp-section section-secondary py-5" id="comment">
         <div className="container">
-          <div className="bg-theme-auto rounded-5 shadow p-4">
-            <h2 className="font-esthetic text-center mt-2 mb-4" style={{ fontSize: '2.25rem' }}>
-              Спасибо!
+          <div className="rsvp-card text-center p-5">
+            <h2 className="font-esthetic mb-4" style={{ fontSize: '2.5rem' }}>
+              Спасибо за ваш ответ!
             </h2>
-            <p className="text-center mb-0" style={{ fontSize: '0.95rem' }}>
-              Ваш ответ был успешно отправлен. Мы очень рады, что вы будете с нами!
+            <p className="mb-0" style={{ fontSize: '1rem' }}>
+              Мы очень рады, что вы поделились своими планами с нами!
             </p>
           </div>
         </div>
@@ -72,76 +65,83 @@ export const RSVP = () => {
   }
 
   return (
-    <section className="bg-light-dark py-4 position-relative" id="comment" style={{ zIndex: 0 }}>
+    <section className="rsvp-section section-secondary py-5" id="comment">
       <div className="container">
-        <div className="bg-theme-auto rounded-5 shadow p-4">
-          <h2 className="font-esthetic text-center mt-2 mb-4" style={{ fontSize: '2.25rem' }}>
-            Пожелания
-          </h2>
+        {/* RSVP Title SVG */}
+        <div className="text-center mb-4">
+          <img
+            src={weddingConfig.images.svg.rsvp}
+            alt="Анкета"
+            className="rsvp-title-svg"
+          />
+        </div>
 
-          <div className="mb-3">
-            <label htmlFor="form-name" className="form-label my-1">
-              <i className="fa-solid fa-person me-2"></i>
-              Ваше имя
+        <p className="text-center mb-2" style={{ fontSize: '0.9rem' }}>
+          просьба заполнить анкету до {weddingConfig.rsvp.deadline}
+        </p>
+
+        {/* RSVP Form */}
+        <div className="rsvp-form-container">
+          {/* Name Field */}
+          <div className="form-group mb-4">
+            <label className="form-label-tilda">
+              {weddingConfig.rsvp.questions.name.label}
             </label>
             <input
-              dir="auto"
               type="text"
-              className="form-control shadow-sm rounded-4"
-              id="form-name"
-              minLength={2}
-              maxLength={50}
-              placeholder="Введите ваше имя"
-              autoComplete="name"
+              name="name"
+              className="form-control-tilda"
+              placeholder={weddingConfig.rsvp.questions.name.placeholder}
               value={form.name}
               onChange={handleChange}
+              required
             />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="form-presence" className="form-label my-1">
-              <i className="fa-solid fa-person-circle-question me-2"></i>
-              Присутствие
+          {/* Presence Radio Buttons */}
+          <div className="form-group mb-4">
+            <label className="form-label-tilda mb-3">
+              {weddingConfig.rsvp.questions.presence.label}
             </label>
-            <select
-              className="form-select shadow-sm rounded-4"
-              id="form-presence"
-              autoComplete="off"
-              value={form.presence}
-              onChange={handleChange}
-            >
-              <option value="0">Подтвердите присутствие</option>
-              <option value="1">&#9989; Буду</option>
-              <option value="2">&#10060; Не смогу</option>
-            </select>
-          </div>
-
-          <div className="d-block mb-3">
-            <label htmlFor="form-comment" className="form-label my-1">
-              <i className="fa-solid fa-comment me-2"></i>
-              Ваше пожелание
-            </label>
-            <div className="position-relative">
-              <textarea
-                dir="auto"
-                className="form-control shadow-sm rounded-4"
-                id="form-comment"
-                rows={4}
-                minLength={1}
-                maxLength={1000}
-                placeholder="Напишите пожелание молодожёнам"
-                autoComplete="off"
-                value={form.comment}
-                onChange={handleChange}
-              />
+            <div className="radio-group">
+              {weddingConfig.rsvp.questions.presence.options.map((option, index) => (
+                <label key={index} className="radio-tilda">
+                  <input
+                    type="radio"
+                    name="presence"
+                    value={option}
+                    checked={form.presence === option}
+                    onChange={handleChange}
+                  />
+                  <span>{option}</span>
+                </label>
+              ))}
             </div>
           </div>
 
-          <div className="d-grid">
+          {/* Partner Name Field (conditional) */}
+          {form.presence === 'Буду с парой!' && (
+            <div className="form-group mb-4">
+              <label className="form-label-tilda">
+                {weddingConfig.rsvp.questions.partnerName.label}
+              </label>
+              <input
+                type="text"
+                name="partnerName"
+                className="form-control-tilda"
+                placeholder={weddingConfig.rsvp.questions.partnerName.placeholder}
+                value={form.partnerName}
+                onChange={handleChange}
+              />
+            </div>
+          )}
+
+          {/* Submit Button */}
+          <div className="text-center mt-4">
             <button
-              className="btn btn-primary btn-sm rounded-4 shadow m-1"
+              className="btn btn-tilda px-5 py-3"
               onClick={handleSubmit}
-              disabled={isSubmitting || !form.name || form.presence === '0'}
+              disabled={isSubmitting || !form.name || !form.presence}
             >
               {isSubmitting ? (
                 <>
@@ -149,10 +149,7 @@ export const RSVP = () => {
                   Отправка...
                 </>
               ) : (
-                <>
-                  <i className="fa-solid fa-paper-plane me-2"></i>
-                  Отправить
-                </>
+                'Отправить!'
               )}
             </button>
           </div>

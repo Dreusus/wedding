@@ -1,1 +1,119 @@
-// Welcome component styles
+// Welcome component styles - Tilda design
+$color-primary: #4b0b22;
+$color-secondary: #f6ece3;
+
+.welcome-tilda {
+  background-color: $color-secondary;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+
+  &.top-right {
+    top: 0;
+    right: -50px;
+    width: 180px;
+    height: auto;
+
+    @media (max-width: 576px) {
+      width: 120px;
+      right: -30px;
+    }
+  }
+
+  &.top-left {
+    top: 50px;
+    left: -50px;
+    width: 160px;
+    height: auto;
+
+    @media (max-width: 576px) {
+      width: 100px;
+      left: -30px;
+    }
+  }
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  max-width: 350px;
+  padding: 20px;
+}
+
+.welcome-title {
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto;
+
+  @media (max-width: 576px) {
+    max-width: 180px;
+  }
+}
+
+.welcome-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 10px 40px rgba($color-primary, 0.2);
+
+  @media (max-width: 576px) {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.welcome-names {
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto;
+
+  @media (max-width: 576px) {
+    max-width: 200px;
+  }
+}
+
+.welcome-guest {
+  color: $color-primary;
+
+  small {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  .guest-name {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 5px 0 0;
+  }
+}
+
+.btn-tilda {
+  background-color: $color-primary;
+  color: $color-secondary;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba($color-primary, 0.3);
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+    color: $color-secondary;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($color-primary, 0.4);
+  }
+
+  @media (max-width: 576px) {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}

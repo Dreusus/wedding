@@ -33,37 +33,56 @@ export const Welcome = () => {
 
   return (
     <div
-      className="loading-page bg-white-black"
+      className="loading-page welcome-tilda"
       style={{ opacity, transition: 'opacity 0.5s ease' }}
     >
-      <div className="d-flex justify-content-center align-items-center vh-100 overflow-y-auto">
-        <div className="d-flex flex-column text-center">
-          <h2 className="font-esthetic mb-4" style={{ fontSize: '2.25rem' }}>
-            Свадьба
-          </h2>
+      {/* Background decorations */}
+      <img
+        src={weddingConfig.images.hero.flowers1}
+        alt=""
+        className="welcome-decoration top-right"
+      />
+      <img
+        src={weddingConfig.images.hero.flowers2}
+        alt=""
+        className="welcome-decoration top-left"
+      />
 
+      <div className="d-flex justify-content-center align-items-center vh-100 overflow-y-auto">
+        <div className="d-flex flex-column text-center welcome-content">
+          {/* Title */}
           <img
-            src={weddingConfig.images.background}
-            alt="background"
-            className="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto"
+            src={weddingConfig.images.svg.title}
+            alt="Приглашение на свадьбу"
+            className="welcome-title mb-3"
           />
 
-          <h2 className="font-esthetic mb-4" style={{ fontSize: '2.25rem' }}>
-            {weddingConfig.groom.name} & {weddingConfig.bride.name}
-          </h2>
+          {/* Couple Photo */}
+          <img
+            src={weddingConfig.images.hero.couple}
+            alt={`${weddingConfig.groom.name} и ${weddingConfig.bride.name}`}
+            className="welcome-photo mb-3 mx-auto"
+          />
 
+          {/* Names */}
+          <img
+            src={weddingConfig.images.svg.names}
+            alt={`${weddingConfig.groom.name} & ${weddingConfig.bride.name}`}
+            className="welcome-names mb-3"
+          />
+
+          {/* Guest name */}
           {guestName && (
-            <div className="m-2">
-              <small className="mt-0 mb-1 mx-0 p-0">Уважаемый гость</small>
-              <p className="m-0 p-0" style={{ fontSize: '1.25rem' }}>
-                {guestName}
-              </p>
+            <div className="welcome-guest mb-3">
+              <small>Уважаемый гость</small>
+              <p className="guest-name">{guestName}</p>
             </div>
           )}
 
+          {/* Open button */}
           <button
             type="button"
-            className="btn btn-light shadow rounded-4 mt-3 mx-auto"
+            className="btn btn-tilda mx-auto"
             onClick={handleOpen}
           >
             <i className="fa-solid fa-envelope-open fa-bounce me-2"></i>

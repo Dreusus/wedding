@@ -5,45 +5,44 @@ export const Program = () => {
   const timeline = weddingConfig.program;
 
   return (
-    <section className="bg-light-dark py-4" id="program">
+    <section className="program-section section-primary py-5" id="program">
+      {/* Title */}
+      <div className="container text-center">
+        <div className="program-title-container mb-4">
+          <img
+            src={weddingConfig.images.svg.program}
+            alt="Программа дня"
+            className="program-title-svg"
+          />
+        </div>
 
-      <div className="container">
-        <h2 className="font-esthetic text-center mb-4" style={{ fontSize: '2.25rem' }}>
-          Программа дня
-        </h2>
+        {/* Clock image */}
+        <div className="clock-container mb-4">
+          <img
+            src={weddingConfig.images.program.clock}
+            alt=""
+            className="clock-image"
+          />
+        </div>
 
-        <p className="text-center mb-4" style={{ fontSize: '0.95rem' }}>
-          Мы подготовили для вас насыщенную программу:
-        </p>
+        {/* Timeline */}
+        <div className="timeline-wrapper">
+          <div className="timeline-line-vertical"></div>
 
-        <div className="timeline-container">
           {timeline.map((event, index) => (
             <div
               key={index}
-              className="timeline-item"
-              data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
-              data-aos-duration="1000"
-              data-aos-delay={index * 100}
+              className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
             >
-              <div className="timeline-marker">
-                <div className="timeline-icon bg-theme-auto shadow">
+              <div className="timeline-icon-wrapper">
+                <div className="timeline-icon">
                   <i className={`fa-solid ${event.icon}`}></i>
                 </div>
-                {index < timeline.length - 1 && <div className="timeline-line"></div>}
               </div>
 
-              <div className="timeline-content bg-theme-auto rounded-4 shadow p-3">
-                <div className="d-flex align-items-center mb-2">
-                  <span className="badge bg-primary rounded-pill me-2">{event.time}</span>
-                  <h4 className="m-0" style={{ fontSize: '1.1rem' }}>
-                    {event.title}
-                  </h4>
-                </div>
-                {event.description && (
-                  <p className="m-0 text-secondary" style={{ fontSize: '0.85rem' }}>
-                    {event.description}
-                  </p>
-                )}
+              <div className="timeline-content">
+                <div className="timeline-time">{event.time}</div>
+                <div className="timeline-title">{event.title}</div>
               </div>
             </div>
           ))}

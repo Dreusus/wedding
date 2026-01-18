@@ -1,1 +1,123 @@
-// Footer component styles
+// Footer component styles - Tilda design
+$color-primary: #4b0b22;
+$color-secondary: #f6ece3;
+
+.footer-section {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+
+  @media (max-width: 576px) {
+    min-height: 400px;
+  }
+}
+
+.footer-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba($color-primary, 0.85) 0%,
+    rgba($color-primary, 0.8) 100%
+  );
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  padding: 40px 20px;
+
+  @media (max-width: 576px) {
+    min-height: 400px;
+    padding: 30px 15px;
+  }
+}
+
+.footer-couple-container {
+  margin-bottom: 30px;
+
+  .footer-couple-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 576px) {
+      width: 180px;
+      height: 180px;
+      border-width: 4px;
+    }
+  }
+}
+
+.footer-text-container {
+  margin-bottom: 30px;
+
+  .footer-text-svg {
+    max-width: 300px;
+    height: auto;
+
+    @media (max-width: 576px) {
+      max-width: 220px;
+    }
+  }
+}
+
+.footer-photos-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  @media (max-width: 576px) {
+    gap: 15px;
+  }
+}
+
+.footer-photo-wrapper {
+  &.left,
+  &.right {
+    .footer-side-photo {
+      width: 120px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 60px;
+      border: 3px solid white;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+      @media (max-width: 576px) {
+        width: 90px;
+        height: 120px;
+        border-width: 2px;
+      }
+    }
+  }
+
+  &.left {
+    transform: rotate(-5deg);
+  }
+
+  &.right {
+    transform: rotate(5deg);
+  }
+}
