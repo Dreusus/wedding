@@ -21,7 +21,7 @@ export const Welcome = () => {
     }
   }, [isWelcomeVisible, isVisible]);
 
-  // Cut sticker - then envelope opens automatically
+  // Cut sticker - then envelope opens and letter expands automatically
   const handleStickerCut = () => {
     if (isStickerCut) return;
 
@@ -30,19 +30,17 @@ export const Welcome = () => {
     // After ribbon cut, open envelope
     setTimeout(() => {
       setIsEnvelopeOpen(true);
+
+      // After envelope opens, expand letter automatically
+      setTimeout(() => {
+        setIsLetterExpanding(true);
+
+        // After letter expands, transition to main page
+        setTimeout(() => {
+          openInvitation();
+        }, 800);
+      }, 1500); // Wait for letter to rise and hearts to fly
     }, 300);
-  };
-
-  // Click on letter to expand and transition
-  const handleLetterClick = () => {
-    if (!isEnvelopeOpen || isLetterExpanding) return;
-
-    setIsLetterExpanding(true);
-
-    // After letter expands, transition to main page
-    setTimeout(() => {
-      openInvitation();
-    }, 800);
   };
 
   if (!isVisible) {
@@ -54,9 +52,6 @@ export const Welcome = () => {
       className={`welcome-page ${!isStickerCut ? 'scissors' : ''}`}
       style={{ opacity, transition: 'opacity 0.5s ease' }}
     >
-      {/* White overlay that expands - OUTSIDE of everything */}
-      {isLetterExpanding && <div className="letter-overlay"></div>}
-
       {/* Guest name */}
       {guestName && (
         <div className="welcome-guest">
@@ -82,7 +77,7 @@ export const Welcome = () => {
           <div className="front pocket"></div>
 
           {/* Letter inside - just lines like original */}
-          <div className="letter" onClick={handleLetterClick}>
+          <div className={`letter ${isLetterExpanding ? 'expanding' : ''}`}>
             <div className="words line1"></div>
             <div className="words line2"></div>
             <div className="words line3"></div>
