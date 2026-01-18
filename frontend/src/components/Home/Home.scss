@@ -168,8 +168,8 @@ $color-secondary: #f6ece3;
 // Burgundy section
 .burgundy-section {
   background-color: $color-primary;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 0;
+  padding-bottom: 50px;
   position: relative;
 
   @media (min-width: 768px) {
