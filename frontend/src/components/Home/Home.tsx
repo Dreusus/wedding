@@ -8,6 +8,11 @@ export const Home = () => {
 
   return (
     <section id="home" className="home-section position-relative overflow-hidden p-0 m-0">
+      {/* Decorative flowers */}
+      <img src="/images/flower.webp" alt="" className="flower flower-1" />
+      <img src="/images/flower2.webp" alt="" className="flower flower-2" />
+      <img src="/images/flower3.webp" alt="" className="flower flower-3" />
+
       {/* Main content */}
       <div className="home-content position-relative text-center">
         {/* Title SVG */}

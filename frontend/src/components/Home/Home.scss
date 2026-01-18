@@ -7,30 +7,47 @@ $color-secondary: #f6ece3;
   min-height: 100vh;
 }
 
-// Floating flower decorations
-.flowers-top-right {
-  top: 0;
-  right: -50px;
-  width: 200px;
-  height: auto;
+// Decorative flowers
+.flower {
+  position: absolute;
   z-index: 2;
+  pointer-events: none;
+}
+
+.flower-1 {
+  top: 0;
+  right: -20px;
+  width: 180px;
+  height: auto;
 
   @media (max-width: 576px) {
     width: 120px;
-    right: -30px;
+    right: -10px;
   }
 }
 
-.flowers-top-left {
-  top: 50px;
-  left: -50px;
+.flower-2 {
+  top: 0;
+  left: -20px;
   width: 180px;
   height: auto;
-  z-index: 2;
+
+  @media (max-width: 576px) {
+    width: 120px;
+    left: -10px;
+  }
+}
+
+.flower-3 {
+  top: 150px;
+  right: -30px;
+  width: 150px;
+  height: auto;
 
   @media (max-width: 576px) {
     width: 100px;
-    left: -30px;
+    top: 100px;
+    right: -15px;
   }
 }
 
@@ -156,14 +173,15 @@ $color-secondary: #f6ece3;
 
 .invite-svg-container {
   margin-bottom: 20px;
+  padding-top: 50px;
 
   .invite-svg {
-    max-width: 200px;
+    max-width: 300px;
     height: auto;
     margin: 0 auto;
 
     @media (max-width: 576px) {
-      max-width: 150px;
+      max-width: 200px;
     }
   }
 }

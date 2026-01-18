@@ -4,6 +4,10 @@ import './Venue.scss';
 export const Venue = () => {
   return (
     <section className="venue-section section-secondary" id="venue">
+      {/* Animated flowers */}
+      <img src="/images/right_flower.webp" alt="" className="venue-flower venue-flower-right" />
+      <img src="/images/right_flower.webp" alt="" className="venue-flower venue-flower-left" />
+
       <div className="container text-center">
         {/* Location SVG */}
         <div className="mb-3">

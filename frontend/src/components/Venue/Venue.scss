@@ -4,6 +4,57 @@ $color-secondary: #f6ece3;
 .venue-section {
   background-color: $color-secondary;
   padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+// Animated flowers
+.venue-flower {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+
+  @media (max-width: 576px) {
+    width: 100px;
+  }
+}
+
+.venue-flower-right {
+  right: -150px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: slideFromRight 1s ease-out forwards;
+}
+
+.venue-flower-left {
+  left: -150px;
+  top: 50%;
+  transform: translateY(-50%) scaleX(-1);
+  animation: slideFromLeft 1s ease-out forwards;
+}
+
+@keyframes slideFromRight {
+  0% {
+    right: -150px;
+    opacity: 0;
+  }
+  100% {
+    right: -20px;
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    left: -150px;
+    opacity: 0;
+  }
+  100% {
+    left: -20px;
+    opacity: 1;
+  }
 }
 
 .location-svg {
