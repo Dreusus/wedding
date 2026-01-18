@@ -1,0 +1,146 @@
+$color-primary: #4b0b22;
+$color-secondary: #f6ece3;
+
+.gifts-section {
+  background-color: $color-primary;
+  padding: 40px 20px;
+  padding-top: 0;
+  margin-top: -60px;
+  padding-bottom: 50px;
+  margin-bottom: -50px;
+  position: relative;
+  overflow: visible;
+}
+
+.gifts-images {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gifts-title {
+  position: absolute;
+  right: 20px;
+  top: 17%;
+  transform: translateY(-50%);
+  max-width: 250px;
+  height: auto;
+  filter: grayscale(100%) brightness(0.5);
+  opacity: 0.7;
+
+  @media (max-width: 576px) {
+    max-width: 120px;
+    right: 10px;
+  }
+}
+
+.gifts-envelope {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  transform: rotate(-13deg);
+  padding-top: 100px;
+}
+
+.organizer-info {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color: $color-secondary;
+  position: relative;
+  z-index: 12;
+}
+
+.organizer-description {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto 20px;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.organizer-name {
+  font-size: 24px;
+  margin-bottom: 15px;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+}
+
+.btn-tilda-outline {
+  background-color: transparent;
+  color: $color-secondary;
+  border: 1px solid $color-secondary;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $color-secondary;
+    color: $color-primary;
+  }
+
+  @media (max-width: 576px) {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+// Вазы с анимацией
+.vases-container {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  padding-bottom: 20px;
+  pointer-events: none;
+}
+
+.animated-vase {
+  max-width: 170px;
+  height: auto;
+  animation: slideUp 1s ease-out forwards;
+}
+
+.vase-left {
+  // как есть
+}
+
+.vase-right {
+  transform: scaleX(-1);
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.vase-right {
+  animation: slideUpRight 1s ease-out forwards;
+}
+
+@keyframes slideUpRight {
+  0% {
+    transform: scaleX(-1) translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(-1) translateY(0);
+    opacity: 1;
+  }
+}

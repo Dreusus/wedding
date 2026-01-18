@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "Bash",
       "Bash(npx create-react-app . --template typescript)",
       "Bash(npm run build:*)",
       "WebFetch(domain:this-is-love.ru)",
@@ -26,7 +27,8 @@
       "Bash(grep:*)",
       "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && grep -o \"\"bg-[a-z-]*\"\" {} | head -1')",
       "Bash(npm run dev:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(dir:*)"
     ]
   }
 }

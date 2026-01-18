@@ -49,7 +49,7 @@ export const RSVP = () => {
 
   if (submitted) {
     return (
-      <section className="rsvp-section section-secondary py-5" id="comment">
+      <section className="rsvp-section section-secondary" id="comment">
         <div className="container">
           <div className="rsvp-card text-center p-5">
             <h2 className="font-esthetic mb-4" style={{ fontSize: '2.5rem' }}>
@@ -65,7 +65,7 @@ export const RSVP = () => {
   }
 
   return (
-    <section className="rsvp-section section-secondary py-5" id="comment">
+    <section className="rsvp-section section-secondary" id="comment">
       <div className="container">
         {/* RSVP Title SVG */}
         <div className="text-center mb-4">

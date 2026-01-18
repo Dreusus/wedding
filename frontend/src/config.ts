@@ -63,15 +63,15 @@ export const weddingConfig = {
   },
   program: [
     {
-      time: '17:00',
-      title: 'Сбор гостей',
+      time: '18:00',
+      title: 'Фуршет',
       description: 'Welcome-зона',
       icon: 'fa-champagne-glasses',
     },
     {
-      time: '18:00',
-      title: 'Церемония',
-      description: 'Торжественная регистрация',
+      time: '18:30',
+      title: 'Регистрация',
+      description: 'Торжественная церемония',
       icon: 'fa-rings-wedding',
     },
     {
@@ -81,9 +81,9 @@ export const weddingConfig = {
       icon: 'fa-utensils',
     },
     {
-      time: '23:00',
-      title: 'Завершение',
-      description: 'Окончание праздника',
+      time: '00:00',
+      title: 'Окончание',
+      description: 'Завершение праздника',
       icon: 'fa-heart',
     },
   ],

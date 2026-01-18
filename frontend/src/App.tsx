@@ -2,13 +2,13 @@ import {useApp} from './contexts/AppContext';
 
 import {Welcome} from './components/Welcome/Welcome';
 import {Home} from './components/Home/Home';
-import {Countdown} from './components/Countdown/Countdown';
-import {DressCode} from './components/DressCode/DressCode';
+import {Venue} from './components/Venue/Venue';
+import {FabricDivider} from './components/FabricDivider/FabricDivider';
 import {Program} from './components/Program/Program';
-import {Organizer} from './components/Organizer/Organizer';
+import {DressCode} from './components/DressCode/DressCode';
+import {Gifts} from './components/Gifts/Gifts';
 import {RSVP} from './components/RSVP/RSVP';
 import {Footer} from './components/Footer/Footer';
-import {DesktopSidebar} from './components/common/DesktopSidebar';
 
 function App() {
     const {isInvitationOpened} = useApp();
@@ -17,17 +17,20 @@ function App() {
         <>
             <Welcome/>
             {isInvitationOpened && (
-                <div className="row m-0 p-0" id="root">
-                    <DesktopSidebar/>
-
-                    <div className="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 m-0 p-0">
+                <div className="d-flex justify-content-center m-0 p-0" id="root">
+                    <div className="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 m-0 p-0">
                         <main>
                             <Home/>
-                            <Countdown/>
-                            <DressCode/>
+                            <Venue/>
+                            <FabricDivider/>
                             <Program/>
-                            <Organizer/>
+                            <FabricDivider/>
+                            <DressCode/>
+                            <FabricDivider/>
+                            <Gifts/>
+                            <FabricDivider/>
                             <RSVP/>
+                            <FabricDivider/>
                             <Footer/>
                         </main>
                     </div>

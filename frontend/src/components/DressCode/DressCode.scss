@@ -1,0 +1,194 @@
+$color-primary: #4b0b22;
+$color-secondary: #f6ece3;
+
+.dresscode-section {
+  background-color: $color-secondary;
+  overflow: hidden;
+}
+
+.dresscode-title-container {
+  padding-top: 20px;
+}
+
+.dresscode-title-svg {
+  max-width: 400px;
+  height: auto;
+
+  @media (max-width: 576px) {
+    max-width: 280px;
+  }
+}
+
+.dresscode-description {
+  color: $color-primary;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.dresscode-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.dresscode-girl-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dresscode-girl-image {
+  width: 200px;
+  height: auto;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 576px) {
+    width: 160px;
+  }
+}
+
+.color-circles-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.color-circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 576px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+// Left side circles (0, 1, 2) - go left
+// Right side circles (3, 4, 5) - go right
+// Vertical spacing: -60px, 0, 60px
+
+// Circle 0 - left top
+.color-circle.circle-0 {
+  .animated & {
+    animation: moveLeftTop 1s ease-out 0.1s forwards;
+  }
+}
+
+// Circle 1 - left middle
+.color-circle.circle-1 {
+  .animated & {
+    animation: moveLeftMiddle 1s ease-out 0.25s forwards;
+  }
+}
+
+// Circle 2 - left bottom
+.color-circle.circle-2 {
+  .animated & {
+    animation: moveLeftBottom 1s ease-out 0.4s forwards;
+  }
+}
+
+// Circle 3 - right top
+.color-circle.circle-3 {
+  .animated & {
+    animation: moveRightTop 1s ease-out 0.55s forwards;
+  }
+}
+
+// Circle 4 - right middle
+.color-circle.circle-4 {
+  .animated & {
+    animation: moveRightMiddle 1s ease-out 0.7s forwards;
+  }
+}
+
+// Circle 5 - right bottom
+.color-circle.circle-5 {
+  .animated & {
+    animation: moveRightBottom 1s ease-out 0.85s forwards;
+  }
+}
+
+// Desktop animations
+@keyframes moveLeftTop {
+  0% { transform: translate(-50%, -50%); }
+  100% { transform: translate(calc(-50% - 130px), calc(-50% - 60px)); }
+}
+
+@keyframes moveLeftMiddle {
+  0% { transform: translate(-50%, -50%); }
+  100% { transform: translate(calc(-50% - 130px), -50%); }
+}
+
+@keyframes moveLeftBottom {
+  0% { transform: translate(-50%, -50%); }
+  100% { transform: translate(calc(-50% - 130px), calc(-50% + 60px)); }
+}
+
+@keyframes moveRightTop {
+  0% { transform: translate(-50%, -50%); }
+  100% { transform: translate(calc(-50% + 130px), calc(-50% - 60px)); }
+}
+
+@keyframes moveRightMiddle {
+  0% { transform: translate(-50%, -50%); }
+  100% { transform: translate(calc(-50% + 130px), -50%); }
+}
+
+@keyframes moveRightBottom {
+  0% { transform: translate(-50%, -50%); }
+  100% { transform: translate(calc(-50% + 130px), calc(-50% + 60px)); }
+}
+
+// Mobile animations - smaller distances
+@media (max-width: 576px) {
+  @keyframes moveLeftTop {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% - 100px), calc(-50% - 50px)); }
+  }
+
+  @keyframes moveLeftMiddle {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% - 100px), -50%); }
+  }
+
+  @keyframes moveLeftBottom {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% - 100px), calc(-50% + 50px)); }
+  }
+
+  @keyframes moveRightTop {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% + 100px), calc(-50% - 50px)); }
+  }
+
+  @keyframes moveRightMiddle {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% + 100px), -50%); }
+  }
+
+  @keyframes moveRightBottom {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(calc(-50% + 100px), calc(-50% + 50px)); }
+  }
+}

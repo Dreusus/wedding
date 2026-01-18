@@ -9,7 +9,7 @@ export const Organizer = () => {
   };
 
   return (
-    <section className="organizer-section section-secondary py-5" id="organizer">
+    <section className="organizer-section section-secondary" id="organizer">
       <div className="container">
         {/* Section with images and organizer info */}
         <div className="organizer-layout">
@@ -24,20 +24,6 @@ export const Organizer = () => {
 
           {/* Center content */}
           <div className="organizer-center">
-            {/* Gift info card */}
-            <div className="organizer-card mb-4">
-              <div className="card-inner">
-                <img
-                  src="https://static.tildacdn.com/tild6634-3564-4130-a363-333765306637/photo.png"
-                  alt=""
-                  className="gift-image"
-                />
-                <p className="gift-text">
-                  {weddingConfig.gifts.description}
-                </p>
-              </div>
-            </div>
-
             {/* Organizer info */}
             <div className="organizer-info">
               <p className="organizer-description">

@@ -1,27 +1,10 @@
 import { weddingConfig } from '../../config';
+import { useCountdown } from '../../hooks/useCountdown';
+import { FabricDivider } from '../FabricDivider/FabricDivider';
 import './Home.scss';
 
 export const Home = () => {
-  const handleSaveToCalendar = () => {
-    const formatDate = (d: string) =>
-      new Date(d).toISOString().replace(/[-:]/g, '').split('.').shift();
-
-    const url = new URL('https://calendar.google.com/calendar/render');
-    const endDate = new Date(weddingConfig.wedding.date);
-    endDate.setHours(endDate.getHours() + 6);
-
-    const data = new URLSearchParams({
-      action: 'TEMPLATE',
-      text: `Свадьба ${weddingConfig.groom.name} и ${weddingConfig.bride.name}`,
-      dates: `${formatDate(weddingConfig.wedding.date)}/${formatDate(endDate.toISOString())}`,
-      details: `Приглашение на свадьбу ${weddingConfig.groom.name} и ${weddingConfig.bride.name}. ${weddingConfig.wedding.dateFormatted}`,
-      location: weddingConfig.wedding.location.address,
-      ctz: 'Europe/Moscow',
-    });
-
-    url.search = data.toString();
-    window.open(url.toString(), '_blank');
-  };
+  const countdown = useCountdown(weddingConfig.wedding.date);
 
   return (
     <section id="home" className="home-section position-relative overflow-hidden p-0 m-0">
@@ -57,15 +40,6 @@ export const Home = () => {
           />
         </div>
 
-        {/* Couple Photo */}
-        <div className="couple-photo-container">
-          <img
-            src={weddingConfig.images.hero.couple}
-            alt={`${weddingConfig.groom.name} и ${weddingConfig.bride.name}`}
-            className="couple-photo"
-          />
-        </div>
-
         {/* Date SVG */}
         <div className="date-container my-3">
           <img
@@ -75,6 +49,8 @@ export const Home = () => {
           />
         </div>
       </div>
+
+      <FabricDivider/>
 
       {/* Burgundy section */}
       <div className="burgundy-section">
@@ -125,40 +101,32 @@ export const Home = () => {
             Ждём вас на нашей свадьбе через:
           </p>
 
-          {/* Countdown placeholder - will be replaced by Countdown component */}
-          <div className="countdown-preview">
-            <img
-              src={weddingConfig.images.svg.countdown}
-              alt=""
-              className="countdown-svg"
-            />
+          {/* Countdown Timer */}
+          <div className="countdown-timer">
+            <div className="countdown-item">
+              <span className="countdown-value">{countdown.days}</span>
+              <span className="countdown-label">дней</span>
+            </div>
+            <div className="countdown-separator">:</div>
+            <div className="countdown-item">
+              <span className="countdown-value">{countdown.hours}</span>
+              <span className="countdown-label">часов</span>
+            </div>
+            <div className="countdown-separator">:</div>
+            <div className="countdown-item">
+              <span className="countdown-value">{countdown.minutes}</span>
+              <span className="countdown-label">минут</span>
+            </div>
+            <div className="countdown-separator">:</div>
+            <div className="countdown-item">
+              <span className="countdown-value">{countdown.seconds}</span>
+              <span className="countdown-label">секунд</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="scroll-indicator">
-        <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
-          <div className="mouse-animation border border-2 rounded-5 px-2 py-1 opacity-50">
-            <div className="scroll-animation rounded-4"></div>
-          </div>
-        </div>
-        <p className="pb-4 m-0" style={{ fontSize: '0.825rem', opacity: 0.7 }}>
-          Листайте вниз
-        </p>
-      </div>
-
-      {/* Save to calendar button */}
-      <div className="text-center pb-4">
-        <button
-          className="btn btn-tilda-outline btn-sm shadow rounded-pill px-4 py-2"
-          style={{ fontSize: '0.825rem' }}
-          onClick={handleSaveToCalendar}
-        >
-          <i className="fa-solid fa-calendar-check me-2"></i>
-          Сохранить в календарь
-        </button>
-      </div>
+      <FabricDivider/>
     </section>
   );
 };
