@@ -14,19 +14,10 @@ export const Venue = () => {
           />
         </div>
 
-        {/* Venue Name */}
-        <div className="mb-3">
-          <img
-            src={weddingConfig.images.svg.venue}
-            alt={weddingConfig.wedding.location.name}
-            className="venue-svg"
-          />
-        </div>
-
         {/* Venue Image */}
         <div className="venue-image-container mb-4">
           <img
-            src={weddingConfig.images.venue.main}
+            src="/images/venue-1.webp"
             alt={weddingConfig.wedding.location.name}
             className="venue-image"
           />

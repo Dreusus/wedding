@@ -26,6 +26,13 @@ $color-secondary: #f6ece3;
   }
 }
 
+.venue-label {
+  font-size: 12px;
+  color: $color-primary;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
 .venue-image-container {
   max-width: 350px;
   margin: 0 auto;

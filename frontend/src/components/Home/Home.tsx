@@ -54,31 +54,6 @@ export const Home = () => {
 
       {/* Burgundy section */}
       <div className="burgundy-section">
-        {/* Decorative couple images */}
-        <div className="couple-images-container">
-          <div className="couple-image-wrapper left">
-            <img
-              src={weddingConfig.images.gallery[2]}
-              alt=""
-              className="couple-small-image"
-            />
-          </div>
-          <div className="couple-image-wrapper center">
-            <img
-              src={weddingConfig.images.gallery[0]}
-              alt=""
-              className="couple-center-image"
-            />
-          </div>
-          <div className="couple-image-wrapper right">
-            <img
-              src={weddingConfig.images.gallery[1]}
-              alt=""
-              className="couple-small-image"
-            />
-          </div>
-        </div>
-
         {/* Invitation text */}
         <div className="invitation-text-container">
           <div className="invite-svg-container">
