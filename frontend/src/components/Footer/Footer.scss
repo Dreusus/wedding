@@ -1,123 +1,147 @@
-// Footer component styles - Tilda design
 $color-primary: #4b0b22;
 $color-secondary: #f6ece3;
 
 .footer-section {
   position: relative;
-  min-height: 500px;
-  overflow: hidden;
+  overflow: visible;
+  padding: 40px 20px;
+  padding-bottom: 0;
+  margin-top: -60px;
 
-  @media (max-width: 576px) {
-    min-height: 400px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/images/phone.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.99;
+    z-index: 0;
   }
 }
 
-.footer-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.footer-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba($color-primary, 0.85) 0%,
-    rgba($color-primary, 0.8) 100%
-  );
-}
-
-.footer-content {
+// Роза
+.footer-roses-container {
+  display: flex;
+  justify-content: center;
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 500px;
-  padding: 40px 20px;
+}
+
+.footer-roses {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
 
   @media (max-width: 576px) {
-    min-height: 400px;
-    padding: 30px 15px;
+    max-width: 200px;
   }
 }
 
-.footer-couple-container {
-  margin-bottom: 30px;
+.animate-from-top {
+  animation: slideFromTop 1s ease-out forwards;
+}
 
-  .footer-couple-image {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-
-    @media (max-width: 576px) {
-      width: 180px;
-      height: 180px;
-      border-width: 4px;
-    }
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.footer-text-container {
-  margin-bottom: 30px;
-
-  .footer-text-svg {
-    max-width: 300px;
-    height: auto;
-
-    @media (max-width: 576px) {
-      max-width: 220px;
-    }
-  }
-}
-
-.footer-photos-row {
+// 1.svg
+.footer-svg1-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-svg1 {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  transform: rotate(-15deg);
 
   @media (max-width: 576px) {
-    gap: 15px;
+    max-width: 180px;
   }
 }
 
-.footer-photo-wrapper {
-  &.left,
-  &.right {
-    .footer-side-photo {
-      width: 120px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 60px;
-      border: 3px solid white;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+.animate-from-rose {
+  animation: slideFromRose 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
 
-      @media (max-width: 576px) {
-        width: 90px;
-        height: 120px;
-        border-width: 2px;
-      }
-    }
+@keyframes slideFromRose {
+  0% {
+    transform: translateY(-50px) rotate(-15deg);
+    opacity: 0;
   }
+  100% {
+    transform: translateY(0) rotate(-15deg);
+    opacity: 1;
+  }
+}
 
-  &.left {
-    transform: rotate(-5deg);
-  }
+// 2.svg
+.footer-svg2-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
 
-  &.right {
-    transform: rotate(5deg);
+.footer-svg2 {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  transform: rotate(-15deg);
+  padding-bottom: 30px;
+  margin-left: 250px;
+  margin-top: -65px;
+
+  @media (max-width: 576px) {
+    max-width: 150px;
+    margin-left: 150px;
   }
+}
+
+.animate-from-bottom {
+  animation: slideFromBottom 1s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(100px) rotate(-15deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(-15deg);
+    opacity: 1;
+  }
+}
+
+// End
+.footer-end-container {
+  position: relative;
+  z-index: 1;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.footer-end-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
