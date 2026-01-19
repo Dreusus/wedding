@@ -52,6 +52,12 @@ export const Welcome = () => {
       className={`welcome-page ${!isStickerCut ? 'scissors' : ''}`}
       style={{ opacity, transition: 'opacity 0.5s ease' }}
     >
+      <div className="petals">
+        {Array.from({ length: 12 }).map((_, idx) => (
+          <span key={idx} className={`petal petal-${idx + 1}`} />
+        ))}
+      </div>
+
       {/* Guest name */}
       {guestName && (
         <div className="welcome-guest">

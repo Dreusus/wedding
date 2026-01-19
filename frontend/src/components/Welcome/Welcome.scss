@@ -8,7 +8,10 @@ $color-env: $color-primary;                      // Sides (main burgundy)
 $color-env2: darken($color-primary, 3%);         // Bottom (slightly darker than sides)
 $color-flap: darken($color-primary, 10%);        // Flap + background (darkest)
 $color-heart: #c41e3a;
-$color-welcome-bg: #f2f2f2; // neutral backdrop behind envelope
+$color-welcome-bg: #f7f4ef; // calmer warm-neutral backdrop behind envelope
+$color-petal-1: #ff9ac8; // brighter petals
+$color-petal-2: #ff75b7;
+$color-petal-3: #fff0f8;
 
 // Envelope dimensions
 $env-width: 280px;
@@ -33,6 +36,51 @@ $heart-width: 25px;
   align-items: center;
   gap: 25px;
   overflow: hidden;
+}
+
+// Floating petals
+.petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.petal {
+  position: absolute;
+  width: 18px;
+  height: 12px;
+  background: radial-gradient(60% 60% at 30% 30%, rgba(255, 235, 243, 0.9), rgba(255, 194, 214, 0.7) 60%, rgba(255, 170, 199, 0.4) 100%);
+  border-radius: 70% 40% 70% 40%;
+  opacity: 0.6;
+  filter: blur(0.2px) drop-shadow(0 2px 4px rgba($color-primary, 0.12));
+  transform-origin: center;
+  animation-name: petal-drift;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes petal-drift {
+  0% {
+    transform: translate3d(0, -15vh, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(14px, 50vh, 0) rotate(70deg);
+  }
+  100% {
+    transform: translate3d(-10px, 115vh, 0) rotate(140deg);
+  }
+}
+
+// Individual petals (position, duration, delay)
+@for $i from 1 through 12 {
+  .petal-#{$i} {
+    left: random(100) * 1%;
+    animation-duration: (10 + random(6)) * 1s;
+    animation-delay: -(random(8)) * 0.5s;
+  }
 }
 
 // Guest name
@@ -131,6 +179,28 @@ $heart-width: 25px;
   @media (min-width: 768px) {
     font-size: 32px;
     letter-spacing: 4px;
+  }
+}
+
+.welcome-shot {
+  position: relative;
+  z-index: 2;
+  margin-top: -10px;
+  width: 260px;
+  max-width: 80vw;
+  aspect-ratio: 3 / 1;
+  background-color: $color-primary;
+  mask-image: url('/images/title.png');
+  -webkit-mask-image: url('/images/title.png');
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+
+  @media (min-width: 768px) {
+    width: 320px;
   }
 }
 
